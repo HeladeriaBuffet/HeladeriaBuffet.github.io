@@ -12,20 +12,14 @@
 <body>
 
 <!-- Navbar (sit on top) -->
- 
+
 <div class="w3-top">
-    <!-- Encabezado con logo y texto -->
-    <div class="header-container">
-      <img src="img/logo.png" alt="Logo Heladería" class="logo">
-      <h1 class="titulo">MENU ONLINE</h1>
-    </div>
-    
-    <!-- Barra de promociones -->
-    <div class="promo-bar">
-      <span id="promoText">¡BIENVENIDOS</span>
-    </div>
+  <div class="header-container">
+    <img src="img/logo.png" alt="Logo Heladería" class="logo" style="width: 120px;">
   </div>
-  
+    
+  </div>
+</div>
   
 
 <!-- Estilos para la barra de promociones -->
@@ -44,7 +38,6 @@
     }
     .w3-top {
     width: 100%;
-    background-color: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     z-index: 1000;
     }
@@ -60,10 +53,18 @@
     }
 
     /* Logo */
-    .logo {
-    width: 80px;
-    height: auto;
-    }
+.logo {
+    display: block;
+    margin: 15px auto;
+    width: 500px; /* Aumenta el tamaño del logo aquí */
+    background: rgba(255, 255, 255, 0.8);
+    padding: 3px 8px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 2px solid #ffecec;
+    transition: transform 0.3s ease;
+}
+
 
     /* Título */
     .titulo {
@@ -229,67 +230,92 @@
     }
 
 
+/* ANIMACIÓN */
+@keyframes rotate360 {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(360deg);
+    }
+  }
 
-    .carousel-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 320px;  /* tamaño máximo */
-  margin: 0 auto;     /* centrar */
-  aspect-ratio: 4 / 3; /* mantiene proporción */
-  overflow: hidden;
-}
-.carousel {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d; 
-  animation: rotate360 60s infinite linear;
-  border-radius: 10px;
+  /* CONTENEDOR GENERAL DEL CARRUSEL */
+  .carousel-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo claro detrás del carrusel */
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  }
 
-}
-.carousel__face { 
-  position: absolute;
-  width: 90%;              /* en lugar de 300px */
-  height: auto;
-  aspect-ratio: 16 / 9;    /* proporción adaptable */
-  top: 20%;
-  left: 5%;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  border-radius: 10px;
+  /* EL CARRUSEL EN SÍ */
+  .carousel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: rotate360 90s infinite linear; /* Más lento */
+  }
 
-}
+  /* CADA CARA DEL CARRUSEL */
+  .carousel__face {
+    position: absolute;
+    width: 90%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    top: 20%;
+    left: 5%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    border: 3px solid rgba(255, 255, 255, 0.8); /* Borde blanco suave */
+  }
 
-.carousel__face:nth-child(1) {
-  background-image: url("https://images.pexels.com/photos/1141853/pexels-photo-1141853.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-  transform: rotateY(  0deg) translateZ(430px); }
-.carousel__face:nth-child(2) { 
-  background-image: url("https://images.pexels.com/photos/1258865/pexels-photo-1258865.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-    transform: rotateY( 40deg) translateZ(430px); }
-.carousel__face:nth-child(3) {
-  background-image: url("https://images.pexels.com/photos/808466/pexels-photo-808466.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-  transform: rotateY( 80deg) translateZ(430px); }
-.carousel__face:nth-child(4) {
-  background-image: url("https://images.pexels.com/photos/1394841/pexels-photo-1394841.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-  transform: rotateY(120deg) translateZ(430px); }
-.carousel__face:nth-child(5) { 
-  background-image: url("https://images.pexels.com/photos/969679/pexels-photo-969679.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
- transform: rotateY(160deg) translateZ(430px); }
-.carousel__face:nth-child(6) { 
-  background-image: url("https://images.pexels.com/photos/1834400/pexels-photo-1834400.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
- transform: rotateY(200deg) translateZ(430px); }
-.carousel__face:nth-child(7) { 
-  background-image: url("https://images.pexels.com/photos/1415268/pexels-photo-1415268.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
- transform: rotateY(240deg) translateZ(430px); }
-.carousel__face:nth-child(8) {
-  background-image: url("https://images.pexels.com/photos/135018/pexels-photo-135018.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-  transform: rotateY(280deg) translateZ(430px); }
-.carousel__face:nth-child(9) {
-  background-image: url("https://images.pexels.com/photos/1175135/pexels-photo-1175135.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-  transform: rotateY(320deg) translateZ(430px); }
-
-
+  /* CADA IMAGEN CON SU POSICIÓN */
+  .carousel__face:nth-child(1) {
+    background-image: url("https://images.pexels.com/photos/1141853/pexels-photo-1141853.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    transform: rotateY(0deg) translateZ(430px);
+  }
+  .carousel__face:nth-child(2) {
+    background-image: url("https://images.pexels.com/photos/1258865/pexels-photo-1258865.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    transform: rotateY(40deg) translateZ(430px);
+  }
+  .carousel__face:nth-child(3) {
+    background-image: url("https://images.pexels.com/photos/808466/pexels-photo-808466.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    transform: rotateY(80deg) translateZ(430px);
+  }
+  .carousel__face:nth-child(4) {
+    background-image: url("https://images.pexels.com/photos/1394841/pexels-photo-1394841.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    transform: rotateY(120deg) translateZ(430px);
+  }
+  .carousel__face:nth-child(5) {
+    background-image: url("https://images.pexels.com/photos/969679/pexels-photo-969679.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    transform: rotateY(160deg) translateZ(430px);
+  }
+  .carousel__face:nth-child(6) {
+    background-image: url("https://images.pexels.com/photos/1834400/pexels-photo-1834400.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    transform: rotateY(200deg) translateZ(430px);
+  }
+  .carousel__face:nth-child(7) {
+    background-image: url("https://images.pexels.com/photos/1415268/pexels-photo-1415268.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    transform: rotateY(240deg) translateZ(430px);
+  }
+  .carousel__face:nth-child(8) {
+    background-image: url("https://images.pexels.com/photos/135018/pexels-photo-135018.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    transform: rotateY(280deg) translateZ(430px);
+  }
+  .carousel__face:nth-child(9) {
+    background-image: url("https://images.pexels.com/photos/1175135/pexels-photo-1175135.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    transform: rotateY(320deg) translateZ(430px);
+  }
 
 @keyframes rotate360 {
   from {
@@ -372,10 +398,15 @@
   </style>
   <style>
         body {
-            background-image: url('img/fondo2.png'); /* URL de la imagen */
-            background-size: cover; /* Para que la imagen cubra toda la pantalla */
-            background-position: center; /* Centra la imagen */
-        }
+            background-image: url('img/copas_especiales/FONDO1.jpg'); /* URL de la imagen */
+            background-repeat: repeat;
+    background-size: auto;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
     </style>
   
     <!-- Menú de navegación estilizado -->
@@ -383,9 +414,8 @@
     <br>
     <br>
     <!-- Título decorativo encima de los botones -->
-    <div class="header-container">
-        <img src="img/logo.png" alt="Logo Heladería" class="logo" style="width: 120px;">
-      </div>
+    <br>
+    <br>
     <!-- Botones de navegación -->
     <nav class="flex justify-center flex-wrap gap-3 mb-6">
     <a href="#copas" class="bg-pink-700 text-white font-bold px-4 py-2 rounded-full shadow hover:bg-pink-800 transition">
@@ -394,6 +424,7 @@
    
     </nav>
 
+    
     
     <!-- PRODUCTO 1 -->
 
