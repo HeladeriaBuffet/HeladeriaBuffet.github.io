@@ -409,15 +409,21 @@
 
   </style>
   <style>
-       body {
+body {
   background-image: url('img/fondo2.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
   font-family: 'Poppins', sans-serif;
   margin: 0;
 }
+
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+  }
+}
+
 
     /* Producto 1 */
 .max-w-xs {
