@@ -14,7 +14,7 @@
 <!-- Navbar (sit on top) -->
 
   <div class="header-container">
-    <img src="img/LOGO.png" alt="Logo Heladería" class="logo" style="width: 120px;">
+    <img src="img/LOGO-removebg-preview (1).png" alt="Logo Heladería" class="logo" >
   </div>
 
 
@@ -55,10 +55,8 @@
 .logo {
     display: block;
     margin: 15px auto;
-    width: 500px; /* Tamaño del logo */
-    background: rgba(255, 255, 255, 0.8);
+    width: 250px; /* Tamaño del logo */
     border-radius: 20px;
-    border: 2px solid #ffecec;
     animation: movimientoModerno 5s ease-in-out infinite; /* Animación moderna */
 }
 
@@ -426,47 +424,72 @@
   border: 5px solid #acfff475; /* Borde oscuro (cambia el color según tus necesidades) */
 }
 
+@keyframes neon-pulse {
+  0%, 100% {
+    text-shadow:
+      0 0 5px rgba(255, 255, 255, 0.6),
+      0 0 10px rgba(255, 255, 255, 0.7),
+      0 0 20px rgba(255, 255, 255, 0.8),
+      0 0 40px rgba(255, 255, 255, 1);
+    opacity: 1;
+  }
+  50% {
+    text-shadow:
+      0 0 2px rgba(255, 255, 255, 0.3),
+      0 0 4px rgba(255, 255, 255, 0.4),
+      0 0 8px rgba(255, 255, 255, 0.5);
+    opacity: 0.7;
+  }
+}
+
+.neon-glow {
+  animation: neon-pulse 2s ease-in-out infinite;
+}
 
 
     </style>
-  
-  
-    <!-- Botones de navegación -->
-    <nav class="flex justify-center flex-wrap gap-3 mb-6">
-    <a href="#copas" class="bg-pink-700 text-white font-bold px-4 py-2 rounded-full shadow hover:bg-pink-800 transition">
-        Copas Especiales
-    </a>
-   
-    </nav>
-
-    
-    
-    <!-- PRODUCTO 1 -->
-
-    <div class="max-w-xs mx-auto bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-      <!-- Contenedor de imagen destacado -->
-      <div class="bg-white p-6 flex justify-center items-center"> <!-- Fondo blanco para la imagen -->
-          <img src="img/copas_especiales/copa_hersgey.png" 
-               alt="Copa Hershey's" 
-               class="w-56 h-56 object-contain drop-shadow-xl transform hover:scale-105 transition duration-300">
-      </div>
-  
-      <!-- Contenido inferior -->
-      <div class="p-4 text-center bg-white"> <!-- Fondo blanco para el contenido inferior -->
-          <span class="inline-block bg-pink-500 text-white text-xs font-medium px-3 py-1 rounded-full mb-2">
-              Copa Hershey's
-          </span>
-          <p class="text-teal-500 font-bold text-lg mt-2">$19.900</p>
-  
-          <!-- Botón -->
-          <button 
-              onclick="document.getElementById('modalDetalles1').style.display='block'" 
-              class="mt-4 w-full bg-teal-400 hover:bg-teal-500 text-white font-semibold py-2 rounded-lg transition">
-              <i class="fa fa-info-circle mr-1"></i> Más Detalles
-          </button>
-      </div>
+<nav class="flex justify-center mb-10">
+  <div class="bg-pink-600 text-white text-2xl md:text-3xl font-semibold px-10 py-4 rounded-xl shadow-lg border border-pink-800 relative">
+    <h2 class="neon-glow relative z-10">Copas Especiales</h2>
+    <div class="absolute inset-0 rounded-xl border-4 border-white opacity-10 pointer-events-none"></div>
   </div>
+</nav>
+
+
+
+    
+    <br>
+    <br>
+    <br>
+
+
+    
+<!-- Tarjeta de Producto Moderna con Fondo Transparente -->
+<div class="relative bg-white/70 backdrop-blur-md rounded-3xl shadow-lg hover:shadow-xl transition duration-300 w-[300px] mx-auto pt-20 pb-6 px-4">
   
+ <!-- Imagen flotante (aún más grande) -->
+<div class="absolute -top-24 left-1/2 transform -translate-x-1/2">
+  <img src="img/copas_especiales/copa_hersgey.png"
+       alt="Copa Hershey's"
+       class="w-48 h-48 object-contain">
+</div>
+
+  <!-- Contenido -->
+  <div class="text-center mt-6">
+    <span class="inline-block bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full mb-2 shadow">
+      Copa Hershey's
+    </span>
+    <p class="text-teal-600 font-bold text-lg">$19.900</p>
+
+    <!-- Botón -->
+    <button 
+      onclick="document.getElementById('modalDetalles1').style.display='block'" 
+      class="mt-4 w-full bg-teal-500 hover:bg-teal-600 text-white text-sm font-semibold py-2 rounded-full transition">
+      <i class="fa fa-info-circle mr-1"></i> Más Detalles
+    </button>
+  </div>
+</div>
+
   <!-- MINI-MODAL de cantidad -->
 <div id="cantidadModal" class="fixed inset-0 z-[100] bg-black/60 flex items-center justify-center hidden">
   <div class="bg-white p-6 rounded-xl shadow-2xl w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg text-center">
@@ -486,7 +509,7 @@
 
 <!-- Modal de Producto -->
 <div id="modalDetalles1" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
-  <div class="bg-white rounded-3xl shadow-2xl w-full max-w-md mx-4 overflow-hidden p-6">
+  <div class="bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden p-6">
     <!-- Header -->
     <div class="bg-pink-400 text-white px-6 py-4 flex justify-between items-center rounded-t-3xl">
       <h3 class="text-lg font-semibold">🍦 Copa Hershey's</h3>
@@ -509,12 +532,12 @@
     <div class="px-6 pb-6 flex flex-col gap-3">
       <button onclick="abrirCantidadModal('Copa Hershey\'s', 19900, 'carritoResumen1')" 
               class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
-        ➕ Agregar a mi pedido
+        ➕ Agregar a mi orden
       </button>
 
       <button onclick="toggleModal(false, 'modalDetalles1')" 
               class="bg-gray-200 hover:bg-gray-300 text-gray-700 py-2 rounded-lg">
-        Cerrar
+        Continuar con mi orden
       </button>
     </div>
   </div>
@@ -524,95 +547,93 @@
 
   <br>
   <br>
+  <br>
+  <br>
+  <br>
+  <br>
     <!-- PRODUCTO 2 -->
 
-    <div class="max-w-xs mx-auto bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-        <!-- Contenedor de imagen destacado -->
-        <div class="bg-gradient-to-tr from-pink-100 to-white p-6 flex justify-center items-center">
-          <img src="img/copas_especiales/copa_exotica.png" 
-               alt="Copa Hershey's" 
-               class="w-56 h-56 object-contain drop-shadow-xl transform hover:scale-105 transition duration-300">
-            </div>
-      
-        <!-- Contenido inferior -->
-        <div class="p-4 text-center">
-          <span class="inline-block bg-pink-500 text-white text-xs font-medium px-3 py-1 rounded-full mb-2">
-            Copa Exotica
-          </span>
-          <p class="text-teal-500 font-bold text-lg mt-2">$12.900</p>
-      
-          <!-- Botón -->
-          <button 
-            onclick="document.getElementById('modalDetalles2').style.display='block'" 
-            class="mt-4 w-full bg-teal-400 hover:bg-teal-500 text-white font-semibold py-2 rounded-lg transition">
-            <i class="fa fa-info-circle mr-1"></i> Más Detalles
-          </button>
-        </div>
-      </div>
-      
-      
-    <!-- MINI-MODAL de cantidad -->
-    <div id="cantidadModal" class="fixed inset-0 z-[100] bg-black/60 flex items-center justify-center hidden">
-        <div class="bg-white p-6 rounded-xl shadow-2xl w-80 text-center">
-        <h3 class="text-lg font-semibold mb-4">¿Cuántas copas deseas?</h3>
-        <input id="cantidadSeleccionada" type="number" min="1" value="1"
-                class="w-20 text-center border rounded-lg py-1 px-2 mb-4 focus:outline-pink-400">
-        <div class="flex justify-center gap-3">
-            <button onclick="confirmarCantidad()" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-lg">
-            Agregar
-            </button>
-            <button onclick="cerrarCantidadModal()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-lg">
-            Cancelar
-            </button>
-        </div>
-        </div>
-    </div>
-    
+        
+<!-- Tarjeta de Producto Moderna con Fondo Transparente -->
+<div class="relative bg-white/70 backdrop-blur-md rounded-3xl shadow-lg hover:shadow-xl transition duration-300 w-[300px] mx-auto pt-20 pb-6 px-4">
   
-    <!-- MODAL DE PRODUCTO -->
-    <div id="modalDetalles2" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
-        <div class="bg-white rounded-3xl shadow-2xl w-full max-w-md mx-4 overflow-hidden p-6">
-    
-        <!-- Header -->
-        <div class="bg-pink-400 text-white px-6 py-4 flex justify-between items-center rounded-t-3xl">
-            <h3 class="text-lg font-semibold">🍦 Copa Exotica</h3>
-            <button onclick="toggleModal2(false)" class="text-white text-2xl font-bold">&times;</button>
-        </div>
-    
-        <!-- Body -->
-        <div class="p-6 text-sm text-gray-700">
-            <img src="img/copas_especiales/copa_exotica.png" class="w-48 h-48 mx-auto object-contain rounded-xl shadow mb-4">
-    
-            <p><strong>Ingredientes:</strong> 1 sabor de helado, fresa, manzana, durazno, crema de la casa y mani.</p>
-            <p><strong>Precio unitario:</strong> <span class="text-pink-600 font-semibold">💲12.900</span></p>
-    
-    
-            <!-- Carrito info -->
-            <div class="mt-2 text-gray-600 text-sm" id="carritoResumen">
-            Pedido: 0 Copas agregadas.
-            </div>
-        </div>
-    
-        <!-- Footer -->
-        <div class="px-6 pb-6 flex flex-col gap-3">
-          <button onclick="abrirCantidadModal('Copa exotica\'s', 12900, 'carritoResumen2')" 
-                  class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
-            ➕ Agregar a mi pedido
-          </button>
+  <!-- Imagen flotante (aún más grande) -->
+ <div class="absolute -top-24 left-1/2 transform -translate-x-1/2">
+   <img src="img/copas_especiales/copa_exotica.png"
+        alt="Copa Hershey's"
+        class="w-48 h-48 object-contain">
+ </div>
+ 
+   <!-- Contenido -->
+   <div class="text-center mt-6">
+     <span class="inline-block bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full mb-2 shadow">
+       Copa Hershey's
+     </span>
+     <p class="text-teal-600 font-bold text-lg">$19.900</p>
+ 
+     <!-- Botón -->
+     <button 
+       onclick="document.getElementById('modalDetalles2').style.display='block'" 
+       class="mt-4 w-full bg-teal-500 hover:bg-teal-600 text-white text-sm font-semibold py-2 rounded-full transition">
+       <i class="fa fa-info-circle mr-1"></i> Más Detalles
+     </button>
+   </div>
+ </div>
+ 
+   <!-- MINI-MODAL de cantidad -->
+ <div id="cantidadModal" class="fixed inset-0 z-[100] bg-black/60 flex items-center justify-center hidden">
+   <div class="bg-white p-6 rounded-xl shadow-2xl w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg text-center">
+     <h3 class="text-lg font-semibold mb-4">¿Cuántas copas deseas?</h3>
+     <input id="cantidadSeleccionada" type="number" min="1" value="1"
+            class="w-20 text-center border rounded-lg py-1 px-2 mb-4 focus:outline-pink-400">
+     <div class="flex justify-center gap-3">
+       <button onclick="confirmarCantidad()" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-lg">
+         Agregar
+       </button>
+       <button onclick="cerrarCantidadModal()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-lg">
+         Cancelar
+       </button>
+     </div>
+   </div>
+ </div>
+ 
+ <!-- Modal de Producto -->
+ <div id="modalDetalles2" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
+   <div class="bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden p-6">
+     <!-- Header -->
+     <div class="bg-pink-400 text-white px-6 py-4 flex justify-between items-center rounded-t-3xl">
+       <h3 class="text-lg font-semibold">🍦 Copa Hershey's</h3>
+       <button onclick="toggleModal2(false, 'modalDetalles2')" class="text-white text-2xl font-bold">&times;</button>
+     </div>
+ 
+     <!-- Body -->
+     <div class="p-6 text-sm text-gray-700">
+       <img src="img/copas_especiales/copa_exotica.png" class="w-48 h-48 mx-auto object-contain rounded-xl shadow mb-4">
+       <p><strong>Ingredientes:</strong> 1 sabor de helado, salsa de chocolate, crema de la casa, fresa, chocolatina Hershey's y abanico.</p>
+       <p><strong>Precio unitario:</strong> <span class="text-pink-600 font-semibold">💲19.900</span></p>
+       
+       <!-- Carrito info -->
+       <div class="mt-2 text-gray-600 text-sm" id="carritoResumen1">
+         Pedido: 0 Copas agregadas.
+       </div>
+     </div>
+ 
+     <!-- Footer -->
+     <div class="px-6 pb-6 flex flex-col gap-3">
+       <button onclick="abrirCantidadModal('Copa Hershey\'s', 19900, 'carritoResumen1')" 
+               class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+         ➕ Agregar a mi orden
+       </button>
+ 
+       <button onclick="toggleModal2(false, 'modalDetalles2')" 
+               class="bg-gray-200 hover:bg-gray-300 text-gray-700 py-2 rounded-lg">
+         Continuar con mi orden
+       </button>
+     </div>
+   </div>
+ </div>
+ 
 
-    
-            <button onclick="toggleModal2(false)" 
-                    class="bg-gray-200 hover:bg-gray-300 text-gray-700 py-2 rounded-lg">
-            Cerrar
-            </button>
-        </div>
-        </div>
-    </div>
-</div>
-
-
-
-  
 <!-- Carrito modal (ubicado en la parte superior izquierda) -->
 <div id="carritoVisualizacion" class="fixed top-20 left-10 bg-white p-6 rounded-lg shadow-lg w-72 max-h-96 overflow-y-auto hidden z-50">
     <h3 class="text-lg font-semibold">Mi pedido</h3>
