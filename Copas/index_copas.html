@@ -57,6 +57,8 @@
     gap: 10px;
     flex-wrap: wrap;
     }
+
+  /* Logo */
 .logo {
   display: block;
   margin: 30px auto 15px auto; /* top right bottom left */
@@ -258,78 +260,7 @@
     }
   }
 
-.carousel-wrapper {
-  perspective: 1000px;
-  margin: 0rem auto; /* <-- Esto agrega espacio arriba y abajo */
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-.carousel {
-  margin: 0 auto;
-  width: 200px;
-  height: 300px;
-  position: relative;
-  transform-style: preserve-3d;
-  animation: rotate360 40s infinite linear;
-}
-
-.carousel__face {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  top: 10px;
-  left: 0;
-  right: 0;
-  margin: auto;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1.2rem;
-  text-align: center;
-  border-radius: 10px;
-}
-
-/* Animation */
-@keyframes rotate360 {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(-360deg);
-  }
-}
-
-/* Responsive */
-@media screen and (max-width: 480px) {
-  .carousel {
-    max-width: 90%;
-    height: 180px;
-  }
-  .carousel__face {
-    width: 90%;
-    height: 160px;
-    font-size: 1rem;
-  }
-}
 </style>
-
-
-<div class="carousel-wrapper">
-  <div class="carousel">
-    <div class="carousel__face" style="transform: rotateY(0deg) translateZ(260px); background-image: url('img/local.jpeg');"></div>
-    <div class="carousel__face" style="transform: rotateY(40deg) translateZ(260px); background-image: url('img/copa_fantasia.jpeg');"></div>
-    <div class="carousel__face" style="transform: rotateY(80deg) translateZ(260px); background-image: url('img/oblea.jpeg');"></div>
-    <div class="carousel__face" style="transform: rotateY(120deg) translateZ(260px); background-image: url('img/waflebono.jpeg');"></div>
-    <div class="carousel__face" style="transform: rotateY(160deg) translateZ(260px); background-image: url('img/ensalada_frutas.jpeg');"></div>
-    <div class="carousel__face" style="transform: rotateY(200deg) translateZ(260px); background-image: url('img/gatico.jpeg');"></div>
-    <div class="carousel__face" style="transform: rotateY(240deg) translateZ(260px); background-image: url('img/cono_loco.jpeg');"></div>
-    <div class="carousel__face" style="transform: rotateY(280deg) translateZ(260px); background-image: url('img/barquito.jpeg');"></div>
-  </div>
-</div>
 
 
 <script>
@@ -410,62 +341,306 @@
 }
 
 
-</style>
+    </style>
 
 
-<div class="menu-container">
-  <a href="Copas/index_copas.html" class="menu-btn">Copas Especiales</a>
-  <a href="#" class="menu-btn">Obleas Especiales</a>
-  <a href="#" class="menu-btn">Para los Chiquis</a>
-  <a href="#" class="menu-btn">Super Malteadas</a>
-  <a href="#" class="menu-btn">Granizados</a>
+<nav class="flex justify-center mb-10">
+  <div class="bg-pink-700 text-white text-xl md:text-2xl font-semibold px-6 py-3 rounded-3xl shadow-lg border border-pink-800 relative">
+    <h2 class="neon-glow relative z-10">Copas Especiales</h2>
+    <div class="absolute inset-0 rounded-3xl border-4 border-white opacity-10 pointer-events-none"></div>
+  </div>
+</nav>
+
+<nav class="flex justify-center mb-10">
+  <div class="bg-pink-700 text-white text-sm md:text-base font-semibold px-4 py-2 rounded-3xl shadow-lg border border-pink-800 relative">
+   
+  <!-- Botón para regresar a la Página 1 -->
+  <button onclick="window.location.href = '../index.html';" 
+          class="neon-glow relative z-10">
+    ↩️ Regresar al menu inicial
+        <div class="absolute inset-0 rounded-3xl border-4 border-white opacity-10 pointer-events-none"></div>
+  </button>
+  </div>
+</nav>
+
+    <br>
+    <br>
+    <br>
+
+
+    <!-- PRODUCTO 1 -->
+<!-- Tarjeta de Producto Moderna con Fondo de Imagen -->
+<div class="relative backdrop-blur-md rounded-3xl shadow-lg hover:shadow-xl transition duration-300 w-[350px] mx-auto pt-20 pb-6 px-4"
+style="background-image: url('img/fondo2.png'); background-size: cover; background-position: center;"
+>
+  
+  <!-- Imagen flotante -->
+  <div class="absolute -top-24 left-1/2 transform -translate-x-1/2">
+    <img src="img/copas_especiales/copa_hersgey.png"
+         alt="Copa Hershey's"
+         class="w-48 h-48 object-contain">
+  </div>
+
+  <!-- Contenido -->
+  <div class="text-center mt-6 bg-white/90 rounded-xl p-2 shadow">
+    <span class="inline-block bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full mb-2 shadow">
+      Copa Hershey's
+    </span>
+    <p class="text-teal-600 font-bold text-lg">$19.900</p>
+
+    <!-- Botón -->
+    <button 
+      onclick="document.getElementById('modalDetalles1').style.display='block'" 
+      class="mt-4 w-full bg-teal-500 hover:bg-teal-600 text-white text-sm font-semibold py-2 rounded-full transition">
+      <i class="fa fa-info-circle mr-1"></i> Más Detalles
+    </button>
+  </div>
 </div>
 
-<style>
-.menu-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
- background-image: url('img/fondo2.png'); /* Añades la URL de la imagen aquí */
-  background-size: cover; /* Hace que la imagen cubra todo el contenedor */
-  background-position: center; /* Centra la imagen dentro del contenedor */
-  background-repeat: no-repeat; /* Evita que la imagen se repita */  border: 1px solid #e0e0e0;
-  border-radius: 50px;
-  padding: 1rem 2rem;
-  max-width: 90%;
-  margin: 2rem auto;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  font-family: 'Segoe UI', sans-serif;
-  flex-wrap: wrap;
-}
+  <!-- MINI-MODAL de cantidad -->
+<div id="cantidadModal" class="fixed inset-0 z-[100] bg-black/60 flex items-center justify-center hidden">
+  <div class="bg-white p-6 rounded-xl shadow-2xl w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg text-center">
+    <h3 class="text-lg font-semibold mb-4">¿Cuántas copas deseas?</h3>
+    <input id="cantidadSeleccionada" type="number" min="1" value="1"
+           class="w-20 text-center border rounded-lg py-1 px-2 mb-4 focus:outline-pink-400">
+    <div class="flex justify-center gap-3">
+      <button onclick="confirmarCantidad()" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-lg">
+        Agregar
+      </button>
+      <button onclick="cerrarCantidadModal()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-lg">
+        Cancelar
+      </button>
+    </div>
+  </div>
+</div>
 
-.menu-btn {
-  text-decoration: none;
-  font-weight: 600;
-  color: #ffffff;
-  letter-spacing: 0.5px;
-  font-size: 0.95rem;
-  padding: 0.5rem 1rem;
-  border-radius: 8px; /* Agrega un borde redondeado a cada opción */
-  transition: all 0.3s ease;
-  background-color:#4AC0B0;; /* Fondo claro para cada opción */
-}
+<!-- Modal de Producto -->
+<div id="modalDetalles1" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
+  <div class="bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden p-6">
+    <!-- Header -->
+    <div class="bg-pink-400 text-white px-6 py-4 flex justify-between items-center rounded-t-3xl">
+      <h3 class="text-lg font-semibold">🍦 Copa Hershey's</h3>
+      <button onclick="toggleModal(false, 'modalDetalles1')" class="text-white text-2xl font-bold">&times;</button>
+    </div>
 
-.menu-btn:hover {
-  color: #ffffff; /* Color de texto al pasar el cursor */
-  background-color: #ff4081; /* Fondo azul al pasar el cursor */
-  text-decoration: underline;
-  transform: scale(1.05); /* Efecto de zoom suave */
-}
+    <!-- Body -->
+    <div class="p-6 text-sm text-gray-700">
+      <img src="img/copas_especiales/copa_hersgey.png" class="w-48 h-48 mx-auto object-contain rounded-xl shadow mb-4">
+      <p><strong>Ingredientes:</strong> 1 sabor de helado, salsa de chocolate, crema de la casa, fresa, chocolatina Hershey's y abanico.</p>
+      <p><strong>Precio unitario:</strong> <span class="text-pink-600 font-semibold">💲19.900</span></p>
+      
+      <!-- Carrito info -->
+      <div class="mt-2 text-gray-600 text-sm" id="carritoResumen1">
+        Pedido: 0 Copas agregadas.
+      </div>
+    </div>
 
-.menu-btn:focus {
-  outline: 2px solid #ff4081; /* Borde azul al hacer foco */
-}
-</style>
+    <!-- Footer -->
+    <div class="px-6 pb-6 flex flex-col gap-3">
+      <!-- Botón para agregar a la orden -->
+  <button onclick="agregarAlCarrito('Copa Hershey\'s', 19900, 'cantidadCopa', 'carritoResumen1')"
+          class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+    ➕ Agregar a mi orden
+  </button>
+      <button onclick="toggleModal(false, 'modalDetalles1')" 
+              class="bg-gray-200 hover:bg-gray-300 text-gray-700 py-2 rounded-lg">
+        Continuar con mi orden
+      </button>
+    </div>
+  </div>
+</div>
+
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  
+    <!-- PRODUCTO 2 -->
+
+<!-- Tarjeta de Producto Moderna con Fondo de Imagen -->
+<div class="relative backdrop-blur-md rounded-3xl shadow-lg hover:shadow-xl transition duration-300 w-[350px] mx-auto pt-20 pb-6 px-4"
+     style="background-image: url('img/fondo2.png'); background-size: cover; background-position: center;">
+  
+  <!-- Imagen flotante -->
+  <div class="absolute -top-24 left-1/2 transform -translate-x-1/2">
+    <img src="img/copas_especiales/copa_exotica.png"
+         alt="Copa Hershey's"
+         class="w-48 h-48 object-contain">
+  </div>
+
+  <!-- Contenido -->
+  <div class="text-center mt-6 bg-white/90 rounded-xl p-2 shadow">
+    <span class="inline-block bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full mb-2 shadow">
+      Copa Exótica
+    </span>
+    <p class="text-teal-600 font-bold text-lg">$12.900</p>
+
+    <!-- Botón -->
+    <button 
+      onclick="document.getElementById('modalDetalles2').style.display='block'" 
+      class="mt-4 w-full bg-teal-500 hover:bg-teal-600 text-white text-sm font-semibold py-2 rounded-full transition">
+      <i class="fa fa-info-circle mr-1"></i> Más Detalles
+    </button>
+  </div>
+</div>
+
+  <!-- MINI-MODAL de cantidad -->
+<div id="cantidadModal" class="fixed inset-0 z-[100] bg-black/60 flex items-center justify-center hidden">
+  <div class="bg-white p-6 rounded-xl shadow-2xl w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg text-center">
+    <h3 class="text-lg font-semibold mb-4">¿Cuántas copas deseas?</h3>
+    <input id="cantidadSeleccionada" type="number" min="1" value="1"
+           class="w-20 text-center border rounded-lg py-1 px-2 mb-4 focus:outline-pink-400">
+    <div class="flex justify-center gap-3">
+      <button onclick="confirmarCantidad()" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-lg">
+        Agregar
+      </button>
+      <button onclick="cerrarCantidadModal()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-lg">
+        Cancelar
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de Producto -->
+<div id="modalDetalles2" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
+  <div class="bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden p-6">
+    <!-- Header -->
+    <div class="bg-pink-400 text-white px-6 py-4 flex justify-between items-center rounded-t-3xl">
+      <h3 class="text-lg font-semibold">🍦 Copa Exótica</h3>
+      <button onclick="toggleModal2(false, 'modalDetalles2')" class="text-white text-2xl font-bold">&times;</button>
+    </div>
+
+    <!-- Body -->
+    <div class="p-6 text-sm text-gray-700">
+      <img src="img/copas_especiales/copa_exotica.png" class="w-48 h-48 mx-auto object-contain rounded-xl shadow mb-4">
+      <p><strong>Ingredientes:</strong> 1 sabor de helado, fresa manzana, durazno, crema de la casa y mani</p>
+      <p><strong>Precio unitario:</strong> <span class="text-pink-600 font-semibold">💲12.900</span></p>
+      
+      <!-- Carrito info -->
+      <div class="mt-2 text-gray-600 text-sm" id="carritoResumen1">
+        Pedido: 0 Copas agregadas.
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="px-6 pb-6 flex flex-col gap-3">
+      <button onclick="abrirCantidadModal('Copa Exotica', 12900, 'carritoResumen1')" 
+              class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+        ➕ Agregar a mi orden
+      </button>
+
+      <button onclick="toggleModal2(false, 'modalDetalles2')" 
+              class="bg-gray-200 hover:bg-gray-300 text-gray-700 py-2 rounded-lg">
+        Continuar con mi orden
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+  <!-- PRODUCTO 3 -->
+
+<!-- Tarjeta de Producto Moderna con Fondo de Imagen -->
+<div class="relative backdrop-blur-md rounded-3xl shadow-lg hover:shadow-xl transition duration-300 w-[350px] mx-auto pt-20 pb-6 px-4"
+   style="background-image: url('img/fondo2.png'); background-size: cover; background-position: center;">
+
+<!-- Imagen flotante -->
+<div class="absolute -top-24 left-1/2 transform -translate-x-1/2">
+  <img src="img/copas_especiales/copa_queso.png"
+       alt="Copa Hershey's"
+       class="w-48 h-48 object-contain">
+</div>
+
+<!-- Contenido -->
+<div class="text-center mt-6 bg-white/90 rounded-xl p-2 shadow">
+  <span class="inline-block bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full mb-2 shadow">
+    Copa Queso
+  </span>
+  <p class="text-teal-600 font-bold text-lg">$13.000</p>
+
+  <!-- Botón -->
+  <button 
+    onclick="document.getElementById('modalDetalles3').style.display='block'" 
+    class="mt-4 w-full bg-teal-500 hover:bg-teal-600 text-white text-sm font-semibold py-2 rounded-full transition">
+    <i class="fa fa-info-circle mr-1"></i> Más Detalles
+  </button>
+</div>
+</div>
+
+<!-- MINI-MODAL de cantidad -->
+<div id="cantidadModal" class="fixed inset-0 z-[100] bg-black/60 flex items-center justify-center hidden">
+  <div class="bg-white p-6 rounded-xl shadow-2xl w-full max-w-sm sm:max-w-md lg:max-w-lg text-center overflow-visible">
+    <h3 class="text-lg font-semibold mb-4">¿Cuántas copas deseas?</h3>
+
+    <!-- Campo de cantidad -->
+    <input id="cantidadSeleccionada" type="number" min="1" value="1"
+           class="w-20 text-center border rounded-lg py-1 px-2 mb-4 focus:outline-pink-400">
+
+    <!-- Campo de observaciones -->
+    <div class="mb-4 text-left">
+      <label for="observacion" class="block text-sm font-medium text-gray-700 mb-1">Observaciones</label>
+      <textarea id="observacion" rows="3" class="w-full border rounded-lg py-2 px-3 focus:outline-pink-400" placeholder="Escribe tus observaciones aquí..."></textarea>
+    </div>
+
+    <!-- Botones -->
+    <div class="flex justify-center gap-3">
+      <button onclick="confirmarCantidad()" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-lg">
+        Agregar
+      </button>
+      <button onclick="cerrarCantidadModal()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-lg">
+        Cancelar
+      </button>
+    </div>
+  </div>
+</div>
 
 
 
+<!-- Modal de Producto -->
+<div id="modalDetalles3" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
+<div class="bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden p-6">
+  <!-- Header -->
+  <div class="bg-pink-400 text-white px-6 py-4 flex justify-between items-center rounded-t-3xl">
+    <h3 class="text-lg font-semibold">🍦 Copa Queso</h3>
+    <button onclick="toggleModal3(false, 'modalDetalles3')" class="text-white text-2xl font-bold">&times;</button>
+  </div>
+
+  <!-- Body -->
+  <div class="p-6 text-sm text-gray-700">
+    <img src="img/copas_especiales/copa_queso.png" class="w-48 h-48 mx-auto object-contain rounded-xl shadow mb-4">
+    <p><strong>Ingredientes:</strong> Base de queso, 3 porciones de helado, crema chantilly</p>
+    <p><strong>Precio unitario:</strong> <span class="text-pink-600 font-semibold">💲13.000</span></p>
+    
+    <!-- Carrito info -->
+    <div class="mt-2 text-gray-600 text-sm" id="carritoResumen1">
+      Pedido: 0 Copas agregadas.
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="px-6 pb-6 flex flex-col gap-3">
+    <button onclick="abrirCantidadModal('Copa Queso', 13000, 'carritoResumen1')" 
+            class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+      ➕ Agregar a mi orden
+    </button>
+
+    <button onclick="toggleModal3(false, 'modalDetalles3')" 
+            class="bg-gray-200 hover:bg-gray-300 text-gray-700 py-2 rounded-lg">
+      Continuar con mi orden
+    </button>
+  </div>
+</div>
+</div>
 
 <!-- Carrito modal mejorado y centrado -->
 <div id="carritoVisualizacion"
@@ -498,8 +673,18 @@
   Antes de ordenar debes seleccionar por lo menos un helado.
 </div>
 
-
 <script>
+
+function toggleModal(show) {
+    const modal = document.getElementById('modalDetalles1');
+    modal.style.display = show ? 'flex' : 'none';
+  }
+
+function toggleModal2(show) {
+    const modal = document.getElementById('modalDetalles2');
+    modal.style.display = show ? 'flex' : 'none';
+  }
+
 function toggleModal3(show) {
       const modal = document.getElementById('modalDetalles3');
       modal.style.display = show ? 'flex' : 'none';
@@ -508,9 +693,9 @@ function toggleModal3(show) {
 function abrirCantidadModal(nombre, precio, resumenId) {
   productoTemporal = { nombre, precio, resumenId };
   document.getElementById('cantidadSeleccionada').value = 1;
+  document.getElementById('observacion').value = ''; // Limpiar campo de observaciones
   document.getElementById('cantidadModal').classList.remove('hidden');
 }
-
 
 // Función para cerrar el modal de cantidad
 function cerrarCantidadModal() {
@@ -519,14 +704,20 @@ function cerrarCantidadModal() {
 
 function confirmarCantidad() {
   const cantidad = parseInt(document.getElementById('cantidadSeleccionada').value);
+  const observacion = document.getElementById('observacion').value.trim(); // Nueva línea
+
   if (cantidad > 0) {
     const { nombre, precio, resumenId } = productoTemporal;
     const productoExistente = carrito.find(item => item.nombre === nombre);
 
     if (productoExistente) {
       productoExistente.cantidad += cantidad;
+      // Si quieres guardar observaciones adicionales, podrías concatenarlas:
+      if (observacion) {
+        productoExistente.observaciones = (productoExistente.observaciones || '') + ' | ' + observacion;
+      }
     } else {
-      carrito.push({ nombre, precio, cantidad });
+      carrito.push({ nombre, precio, cantidad, observaciones: observacion }); // Añadir observaciones
     }
 
     actualizarCarrito();
@@ -541,6 +732,7 @@ function confirmarCantidad() {
     mostrarAlerta(`${cantidad} x ${nombre} agregados a tu pedido.`, 'bg-green-500');
   }
 }
+
 // Arreglo de productos en el carrito
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
@@ -635,6 +827,7 @@ window.onload = actualizarCarrito;
 </style>
 
 <div class="w3-container w3-padding-32" id="about"></div>
+
 
 
 
