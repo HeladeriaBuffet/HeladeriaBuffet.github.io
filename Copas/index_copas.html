@@ -397,12 +397,23 @@ style="background-image: url('img/fondo2.png'); background-size: cover; backgrou
   </div>
 </div>
 
-  <!-- MINI-MODAL de cantidad -->
+<!-- MINI-MODAL de cantidad -->
 <div id="cantidadModal" class="fixed inset-0 z-[100] bg-black/60 flex items-center justify-center hidden">
   <div class="bg-white p-6 rounded-xl shadow-2xl w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg text-center">
     <h3 class="text-lg font-semibold mb-4">¿Cuántas copas deseas?</h3>
+    
+    <!-- Campo de cantidad -->
     <input id="cantidadSeleccionada" type="number" min="1" value="1"
            class="w-20 text-center border rounded-lg py-1 px-2 mb-4 focus:outline-pink-400">
+    
+    <!-- Nuevo campo de observaciones -->
+    <label for="observaciones" class="block text-sm font-medium text-gray-700 mb-1">
+      Ingrese sus observaciones adicionales
+    </label>
+    <textarea id="observaciones" rows="3" placeholder="Ej. Sin fresa, agregar más chocolate..."
+              class="w-full border rounded-lg p-2 text-sm focus:outline-pink-400 mb-4"></textarea>
+
+    <!-- Botones -->
     <div class="flex justify-center gap-3">
       <button onclick="confirmarCantidad()" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-lg">
         Agregar
@@ -657,7 +668,7 @@ style="background-image: url('img/fondo2.png'); background-size: cover; backgrou
   </button>
 
   <!-- Botón para agregar más helados y cerrar el modal -->
-  <button onclick="toggleModal(false, 'carritoVisualizacion')"
+  <button onclick="toggleModalPedido(false, 'carritoVisualizacion')"
           class="mt-4 bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-full w-full font-medium">
     🍦 Agregar más helados
   </button>
@@ -680,6 +691,13 @@ function toggleModal(show) {
     modal.style.display = show ? 'flex' : 'none';
   }
 
+function toggleModalPedido(mostrar, idModal) {
+  const modal = document.getElementById('carritoVisualizacion');
+  if (modal) {
+    modal.style.display = mostrar ? 'flex' : 'none';
+  }
+}
+
 function toggleModal2(show) {
     const modal = document.getElementById('modalDetalles2');
     modal.style.display = show ? 'flex' : 'none';
@@ -693,7 +711,7 @@ function toggleModal3(show) {
 function abrirCantidadModal(nombre, precio, resumenId) {
   productoTemporal = { nombre, precio, resumenId };
   document.getElementById('cantidadSeleccionada').value = 1;
-  document.getElementById('observacion').value = ''; // Limpiar campo de observaciones
+  document.getElementById('observaciones').value = ''; // Limpiar campo de observaciones
   document.getElementById('cantidadModal').classList.remove('hidden');
 }
 
@@ -704,7 +722,7 @@ function cerrarCantidadModal() {
 
 function confirmarCantidad() {
   const cantidad = parseInt(document.getElementById('cantidadSeleccionada').value);
-  const observacion = document.getElementById('observacion').value.trim(); // Nueva línea
+  const observacion = document.getElementById('observaciones').value.trim(); // Nueva línea
 
   if (cantidad > 0) {
     const { nombre, precio, resumenId } = productoTemporal;
@@ -743,7 +761,10 @@ function actualizarCarrito() {
   listaCarrito.innerHTML = ''; // Limpiar el carrito visual
   carrito.forEach(producto => {
     const li = document.createElement('li');
-    li.textContent = `${producto.cantidad} x ${producto.nombre} - 💲${(producto.precio * producto.cantidad).toLocaleString()}`;
+    li.innerHTML = `${producto.cantidad} x ${producto.nombre} - 💲${(producto.precio * producto.cantidad).toLocaleString()}`;
+    if (producto.observaciones) {
+      li.innerHTML += `<br><span class="text-sm text-gray-500">📝 ${producto.observaciones}</span>`;
+    }
     listaCarrito.appendChild(li);
   });
 
@@ -775,20 +796,26 @@ function enviarPorWhatsapp() {
 
   let mensaje = "Hola, quiero pedir:\n";
   let total = 0;
+
   carrito.forEach(p => {
     const subtotal = p.precio * p.cantidad;
-    mensaje += `• ${p.cantidad} x ${p.nombre} - 💲${subtotal.toLocaleString()}\n`;
+    mensaje += `• ${p.cantidad} x ${p.nombre} - 💲${subtotal.toLocaleString()}`;
+    if (p.observaciones) {
+      mensaje += `\n   ↳ 📝 ${p.observaciones}`;
+    }
+    mensaje += `\n`;
     total += subtotal;
   });
+
   mensaje += `\nTotal: 💲${total.toLocaleString()}`;
-  
+
   const url = `https://wa.me/573145855142?text=${encodeURIComponent(mensaje)}`;
   window.open(url, '_blank');
 
   // 🔁 Vaciar carrito con un pequeño retraso
   setTimeout(() => {
     limpiarCarrito();
-  }, 500); // medio segundo
+  }, 500);
 }
 
 
