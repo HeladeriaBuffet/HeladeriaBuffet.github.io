@@ -1,51 +1,1875 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Página en mantenimiento</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #f9f9f9, #e0e0e0);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      color: #333;
-    }
-    .container {
-      text-align: center;
-      max-width: 600px;
-      padding: 2rem;
-      background-color: white;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-    h1 {
-      font-size: 2.5rem;
-      color: #444;
-    }
-    p {
-      font-size: 1.2rem;
-      margin-top: 1rem;
-      color: #666;
-    }
-    .emoji {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú Heladería</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <div class="container">
-    <div class="emoji">🔧🚧</div>
-    <h1>¡Estamos trabajando para ti!</h1>
-    <p>Actualmente estamos realizando algunas mejoras en nuestro sitio web.<br/>
-    Por favor, vuelve pronto para descubrir todas las novedades.</p>
+<body class="bg-white text-black pt-[120px]"> <!-- padding-top para evitar solapamiento -->
+
+  <!-- 🟢 Barra Promocional Fija -->
+  <div class="fixed top-0 left-0 w-full bg-teal-500 text-white text-center font-bold py-2 z-50">
+    DOMICILIOS EN PEREIRA Y DOSQUEBRADAS
   </div>
+
+  <div class="fixed top-10 left-0 w-full bg-[#FFFCF5] text-black shadow-md z-40">
+    <div class="max-w-screen-lg mx-auto flex items-center p-4 gap-4">
+
+      <!-- Logo más grande -->
+      <img src="img/LOGO-removebg-preview (1).png" alt="Logo" class="w-24 h-34 object-contain">
+
+      <!-- Info -->
+      <div class="flex-1">
+        <h1 class="text-xl font-bold">HELADERÍA BUFFET</h1>
+        <p class="text-sm text-gray-800">📍 Cl 21 #4AC0B0, Dosquebradas, Risaralda</p>
+      </div>
+
+      <!-- Imagen de perfil -->
+      <img src="img/menu.png" alt="Perfil" class="w-10 h-10 rounded-full object-cover border border-white">
+    </div>
+  </div>
+
+
+
+<!-- Estilos para la barra de promociones -->
+<style>
+    
+    .w3-top {
+        position: fixed;
+        top: 0; /* ✅ Esto la pone arriba */
+        width: 100%;
+        transition: top 0.3s ease-in-out;
+        z-index: 1000;
+    }
+    html, body {
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+
+    /* Barra rosa de promoción */
+    .promo-bar {
+    background-color:#4AC0B0;
+    text-align: center;
+    color:aliceblue;
+    font-weight: bold;
+    padding: 8px;
+    }
+
+    .logo {
+        display: block;
+        top: 20px;
+        margin: 45px auto 10px auto; /* top right bottom left */
+        width: 250px;
+        border-radius: 20px;
+        
+    }
+</style>
+
+<!-- Script para cambiar mensajes -->
+<script>
+  const mensajes = [
+      "DOMICILIOS EN PEREIRA Y DOSQUEBRADAS",
+      "TRANSFERENCIA BANCARIA DISPONIBLE",
+     
+  ];
+  let index = 0;
+
+  function cambiarMensaje() {
+      document.getElementById("promoText").innerText = mensajes[index];
+      index = (index + 1) % mensajes.length;
+  }
+
+  setInterval(cambiarMensaje, 3000);
+</script>
+
+<style>
+
+.carousel-wrapper {
+  perspective: 1000px;
+  margin: 0rem auto; /* <-- Esto agrega espacio arriba y abajo */
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.carousel {
+  margin: 0 auto;
+  width: 200px;
+  height: 300px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotate360 40s infinite linear;
+
+}
+
+.carousel__face {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 50px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  text-align: center;
+  border-radius: 10px;
+}
+
+/* Animation */
+@keyframes rotate360 {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-360deg);
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+  .carousel {
+    max-width: 90%;
+    height: 180px;
+  }
+  .carousel__face {
+    width: 90%;
+    height: 160px;
+    font-size: 1rem;
+  }
+}
+</style>
+
+
+<div class="carousel-wrapper">
+  <div class="carousel-container">
+    <div class="carousel">
+      <div class="carousel__face" style="transform: rotateY(0deg) translateZ(260px); background-image: url('img/local.jpeg');"></div>
+      <div class="carousel__face" style="transform: rotateY(40deg) translateZ(260px); background-image: url('img/copa_fantasia.jpeg');"></div>
+      <div class="carousel__face" style="transform: rotateY(80deg) translateZ(260px); background-image: url('img/oblea.jpeg');"></div>
+      <div class="carousel__face" style="transform: rotateY(120deg) translateZ(260px); background-image: url('img/waflebono.jpeg');"></div>
+      <div class="carousel__face" style="transform: rotateY(160deg) translateZ(260px); background-image: url('img/ensalada_frutas.jpeg');"></div>
+      <div class="carousel__face" style="transform: rotateY(200deg) translateZ(260px); background-image: url('img/gatico.jpeg');"></div>
+      <div class="carousel__face" style="transform: rotateY(240deg) translateZ(260px); background-image: url('img/cono_loco.jpeg');"></div>
+      <div class="carousel__face" style="transform: rotateY(280deg) translateZ(260px); background-image: url('img/barquito.jpeg');"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Navbar (sit on top) -->
+      <div class="w3-top">
+        <!-- Barra de promociones -->
+        <div class="promo-bar">
+          <span id="promoText">BIENVENIDOS A HELADERIA BUFFET</span>
+        </div>
+      </div>
+<script>
+  let slideIndex = 0;
+  showSlides();
+
+  function showSlides() {
+    let slides = document.getElementsByClassName("carouselSlides");
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1 }
+    slides[slideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 3000); // Cambia la imagen cada 3 segundos
+  }
+
+  function plusDivs(n) {
+    slideIndex += n - 1;
+    showSlides();
+  }
+</script>
+
+
+
+<br>
+  <!-- Navegación por categorías -->
+<div class="overflow-x-auto whitespace-nowrap px-4">
+  <div class="inline-flex gap-2">
+    <!-- Botón activo -->
+    <button onclick="mostrarSeccion('postres')" id="btn-postres"
+            class="px-4 py-2 rounded-full text-sm font-medium bg-pink-500 text-white shadow hover:bg-pink-600 transition whitespace-nowrap">
+      Copas Especiales
+    </button>
+
+    <!-- Botones inactivos -->
+    <button onclick="mostrarSeccion('obleas')" id="btn-obleas"
+            class="px-4 py-2 rounded-full text-sm font-medium bg-gray-200 text-gray-700 hover:bg-pink-500 hover:text-white transition whitespace-nowrap">
+      Obleas Especiales
+    </button>
+    <button onclick="mostrarSeccion('chiquis')" id="btn-chiquis"
+            class="px-4 py-2 rounded-full text-sm font-medium bg-gray-200 text-gray-700 hover:bg-pink-500 hover:text-white transition whitespace-nowrap">
+      Para los Chiquis
+    </button>
+    <button onclick="mostrarSeccion('ensalada_frutas')" id="btn-ensalada_frutas"
+            class="px-4 py-2 rounded-full text-sm font-medium bg-gray-200 text-gray-700 hover:bg-pink-500 hover:text-white transition whitespace-nowrap">
+      Ensaladas de Frutas
+    </button>
+    <button onclick="mostrarSeccion('granizados')" id="btn-granizados"
+            class="px-4 py-2 rounded-full text-sm font-medium bg-gray-200 text-gray-700 hover:bg-pink-500 hover:text-white transition whitespace-nowrap">
+      Granizados
+    </button>
+  </div>
+</div>
+
+
+
+
+ <!-- Sección: Copas Especiales -->
+  <div id="postres" class="p-4 space-y-4">
+    <h2 class="text-lg font-bold text-pink-600">Copas Especiales</h2>
+
+    <!-- PRODUCTO 01 OBLEA SENCILLA -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      <!-- Imagen -->
+      <img src="img/copas_especiales/copa_oreo.png" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Copa Oreo</h3>
+        <p class="text-sm text-gray-600">2 sabores de helado, galletas oreo, crema de la casa y chantilly.</p>
+        <p class="text-pink-600 font-bold mt-2">$12.900</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_copa_oreo')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_copa_oreo" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_copa_oreo')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/copas_especiales/copa_oreo.png" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Copa Oreo</h3>
+            <p class="text-xl font-semibold text-pink-600">$12.900</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              2 sabores de helado, galletas oreo, crema de la casa y chantilly. ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModal('modal_copa_oreo')" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- COPA HERSHEY -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      
+      <!-- Etiqueta diagonal -->
+      <!-- Etiqueta NUEVO en verde -->
+      <div class="absolute top-2 right-2 bg-green-500 text-white text-[12px] px-3 py-[2px] font-semibold shadow-sm rounded-lg z-10 transform rotate-12">
+        NUEVO
+      </div>
+
+      <!-- Imagen -->
+
+      <img src="img/copas_especiales/copa_hersgey.png" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Copa Hershey's</h3>
+        <p class="text-sm text-gray-600">1 sabor de helado, salsa de chocolate crema de la casa, fresa chocolatina hershey's y abanico.</p>
+        <p class="text-pink-600 font-bold mt-2">$19.900</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_copa_hershey')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_copa_hershey" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_copa_hershey')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/copas_especiales/copa_hersgey.png" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Copa Hershey's</h3>
+            <p class="text-xl font-semibold text-pink-600">$19.900</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              1 sabor de helado, salsa de chocolate crema de la casa, fresa chocolatina hershey's y abanico. ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModal('modal_copa_hershey')" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- COPA FANTASIA  -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      <!-- Imagen -->
+      <img src="img/copas_especiales/copa_fantasia.png" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Copa Fantasia</h3>
+        <p class="text-sm text-gray-600">1 sabor de helado, gelatina, cream de la casa, leche condensada, manzana, y chips de chocolate.</p>
+        <p class="text-pink-600 font-bold mt-2">$13.900</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_copa_fantasia')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_copa_fantasia" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_copa_fantasia')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/copas_especiales/copa_fantasia.png" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Copa Fantasia</h3>
+            <p class="text-xl font-semibold text-pink-600">$13.900</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              1 sabor de helado, gelatina, cream de la casa, leche condensada, manzana, y chips de chocolate. ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModal('modal_copa_fantasia')" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+      <!-- COPA MARACUMANGO  -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      <!-- Imagen -->
+      <img src="img/copas_especiales/maracu_mango.png" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Maracu Mango con Queso</h3>
+        <p class="text-sm text-gray-600">Crema de la casa, maracuya, mango, queso cuajada rayado, lecherita.</p>
+        <p class="text-pink-600 font-bold mt-2">$16.900</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_copa_maracumango')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_copa_maracumango" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_copa_maracumango')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/copas_especiales/maracu_mango.png" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Maracu Mango con Queso</h3>
+            <p class="text-xl font-semibold text-pink-600">$16.900</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              Crema de la casa, maracuya, mango, queso cuajada rayado, lecherita. ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModal('modal_copa_maracumango')" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+      <!-- COPA EXOTICA  -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      <!-- Imagen -->
+      <img src="img/copas_especiales/copa_exotica.png" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Copa Exotica</h3>
+        <p class="text-sm text-gray-600">Banano, tres bolas de helado y toppings..</p>
+        <p class="text-pink-600 font-bold mt-2">$12.000</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_copa_exotica')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_copa_exotica" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_copa_exotica')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/copas_especiales/copa_exotica.png" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Copa Exotica</h3>
+            <p class="text-xl font-semibold text-pink-600">$12.000</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              Banano, tres bolas de helado y toppings.. ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModal('modal_copa_exotica')" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+      <!-- COPA EXOTICA  -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      <!-- Imagen -->
+      <img src="img/copas_especiales/copa_queso.png" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Copa Uchuvas</h3>
+        <p class="text-sm text-gray-600">2 sabores de helado, salsa de uchuvas, crema de la casa, chantilly y barquilloBanano, tres bolas de helado y toppings..</p>
+        <p class="text-pink-600 font-bold mt-2">$13.000</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_copa_uchuvas')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_copa_uchuvas" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_copa_uchuvas')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/copas_especiales/copa_queso.png" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Copa Uchuvas</h3>
+            <p class="text-xl font-semibold text-pink-600">$13.000</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              2 sabores de helado, salsa de uchuvas, crema de la casa, chantilly y barquillo. ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModal('modal_copa_uchuvas')" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  
+  </div>
+
+  
+
+
+
+
+  <!-- Sección: obleas -->
+  <div id="obleas" class="p-4 space-y-4 hidden">
+    <h2 class="text-lg font-bold text-pink-600">Oblea y Wafle</h2>
+
+    <!-- PRODUCTO 01 OBLEA SENCILLA -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      <!-- Imagen -->
+      <img src="img/obleas_especiales/oblea_sencilla.png" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Oblea Sencilla</h3>
+        <p class="text-sm text-gray-600">Queso y arequipe.</p>
+        <p class="text-pink-600 font-bold mt-2">$8.900</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_oblea1')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_oblea1" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_oblea1')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/obleas_especiales/oblea_sencilla.png" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Oblea Sencilla</h3>
+            <p class="text-xl font-semibold text-pink-600">$8.900</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              Queso y arequipe. ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModalBonito()" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCTO OBLEA CON HELADO  -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      <!-- Imagen -->
+      <img src="img/obleas_especiales/oblea_con_helado.png" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Oblea con Helado</h3>
+        <p class="text-sm text-gray-600">1 sabor de helado, fresa, queso,, arequipe y salsa de chocolate.</p>
+        <p class="text-pink-600 font-bold mt-2">$12.900</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_oblea2')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_oblea2" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_oblea2')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/obleas_especiales/oblea_con_helado.png" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Oblea con Helado</h3>
+            <p class="text-xl font-semibold text-pink-600">$12.900</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              1 sabor de helado, fresa, queso,, arequipe y salsa de chocolate. ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModalBonito()" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCTO WAFLEBONO  -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      <!-- Imagen -->
+      <img src="img/obleas_especiales/wafle_bono.png" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Waflebono con Helado</h3>
+        <p class="text-sm text-gray-600">Waflebono con salsa de chocolate, fresa, banano, chantilly y 1 porcion de helado.</p>
+        <p class="text-pink-600 font-bold mt-2">$17.900</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_wafle')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_wafle" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_wafle')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/obleas_especiales/wafle_bono.png" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Waflebono con Helado</h3>
+            <p class="text-xl font-semibold text-pink-600">$17.900</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              Waflebono con salsa de chocolate, fresa, banano, chantilly y 1 porcion de helado. ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModalBonito()" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- PRODUCTO BREVAS  -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      <!-- Imagen -->
+      <img src="img/obleas_especiales/brevas.png" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Brevas</h3>
+        <p class="text-sm text-gray-600">Brevas, queso, arequipey chantilly.</p>
+        <p class="text-pink-600 font-bold mt-2">$15.000</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_brevas')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_brevas" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_brevas')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/obleas_especiales/brevas.png" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Brevas</h3>
+            <p class="text-xl font-semibold text-pink-600">$15.000</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              Brevas, queso, arequipey chantilly. ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModalBonito()" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- Sección: PARA LOS CHIKIS -->
+  <div id="chiquis" class="p-4 space-y-4 hidden">
+    <h2 class="text-lg font-bold text-pink-600">Para los Chiquis</h2>
+
+
+    <!-- PRODUCTO RATON  -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      <!-- Imagen -->
+      <img src="img/chikis/raton.png" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Ratón</h3>
+        <p class="text-pink-600 font-bold mt-2">$9.000</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_raton')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_raton" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_raton')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/chikis/raton.png" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Ratón</h3>
+            <p class="text-xl font-semibold text-pink-600">$9.000</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModalBonito()" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+      <!-- PRODUCTO GATICO  -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      <!-- Imagen -->
+      <img src="img/chikis/gatico.png" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Gatico</h3>
+        <p class="text-pink-600 font-bold mt-2">$9.000</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_gatico')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_gatico" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_gatico')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/chikis/gatico.png" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Gatico</h3>
+            <p class="text-xl font-semibold text-pink-600">$9.000</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModalBonito()" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- PRODUCTO DIVERSION  -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      <!-- Imagen -->
+      <img src="img/chikis/diversion.png" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Diversión</h3>
+        <p class="text-pink-600 font-bold mt-2">$10.000</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_diversion')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_diversion" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_diversion')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/chikis/diversion.png" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Diversión</h3>
+            <p class="text-xl font-semibold text-pink-600">$10.000</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModalBonito()" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+
+  <!-- Sección: ENSALADA DE FRUTAS -->
+  <div id="ensalada_frutas" class="p-4 space-y-4 hidden">
+    <h2 class="text-lg font-bold text-pink-600">Ensaladas de Frutas</h2>
+
+
+    <!-- PRODUCTO ENSALADA DE FRUTAS -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+    <!-- Imagen -->
+    <img src="img/ensalada_frutas/ensalada_frutas.png" class="rounded-xl w-20 h-20 object-contain" alt="Ensalada de Frutas">
+
+    <!-- Detalles -->
+    <div class="flex-1">
+      <h3 class="font-semibold text-gray-800">Ensalada de Frutas</h3>
+      <p class="text-sm text-gray-600">Varias presentaciones disponibles (De la casa, Mediana, Pequeña y Buffet)</p>
+
+      <p class="text-pink-600 font-bold mt-1">Desde $10.900</p>
+    </div>
+
+    <!-- Botón "+" -->
+    <button onclick="abrirModal('modal_ensalada')" 
+      class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+      +
+    </button>
+
+    
+    <!-- Modal con diseño mejorado -->
+    <div id="modal_ensalada" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+      <div class="bg-white rounded-2xl shadow-2xl w-full max-w-sm relative overflow-hidden">
+
+        <!-- Botón cerrar -->
+        <button onclick="cerrarModal('modal_ensalada')" 
+                class="absolute top-3 right-3 text-gray-400 hover:text-red-500 text-2xl font-bold z-10">
+          ✕
+        </button>
+
+        <!-- Imagen centrada -->
+        <div class="w-full flex justify-center pt-6">
+          <img src="img/ensalada_frutas/ensalada_frutas.png" alt="Ensalada de Frutas" class="max-h-52 w-auto object-contain">
+        </div>  
+
+        <!-- Contenido -->
+        <div class="p-5 text-center space-y-4">
+          <h3 class="text-lg font-bold uppercase text-gray-900">Ensalada de Frutas</h3>
+          <p class="text-sm text-gray-600 leading-snug">
+            Clásicas.
+          </p>
+
+          <!-- Opciones de tamaño -->
+          <div class="space-y-2 text-left">
+
+            <!-- Opción destacada -->
+            <button onclick="abrirCantidadModal('Fruta de la Casa', 10000, 'carritoResumen1')" 
+                    class="w-full flex justify-between items-center bg-pink-100 border-2 border-pink-500 rounded-xl px-4 py-3 font-semibold text-gray-800 hover:bg-pink-200 transition">
+              <div>
+                <p>🥇 <span class="font-bold">De la Casa</span></p>
+                <p class="text-xs text-gray-600">2 porciones de helado, papaya, piña, banano, mango, fresa, durazno, kiwi, queso, crema de la casa, chantilly y barquillo</p>
+              </div>
+              <span class="text-pink-600 font-bold text-base">$18.900</span>
+            </button>
+
+            <!-- Otras opciones -->
+            <button onclick="abrirCantidadModal('Fruta Pequeña', 6000, 'carritoResumen1')" 
+                    class="w-full flex justify-between items-center bg-gray-50 border rounded-lg px-4 py-2 hover:bg-pink-50 transition">
+              <span>1 porcion de Helado</span>
+              <span class="text-pink-600 font-semibold">$16.900</span>
+            </button>
+
+            <button onclick="abrirCantidadModal('Fruta Mediana', 8000, 'carritoResumen1')" 
+                    class="w-full flex justify-between items-center bg-gray-50 border rounded-lg px-4 py-2 hover:bg-pink-50 transition">
+              <span>Pequeña</span>
+              <span class="text-pink-600 font-semibold">$14.900</span>
+            </button>
+
+            <button onclick="abrirCantidadModal('Fruta Buffet', 12000, 'carritoResumen1')" 
+                    class="w-full flex justify-between items-center bg-gray-50 border rounded-lg px-4 py-2 hover:bg-pink-50 transition">
+              <span>Buffet</span>
+              <span class="text-pink-600 font-semibold">$19.900 x Libra</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Botón continuar -->
+        <div class="px-5 pb-5">
+          <button onclick="cerrarModal('modal_ensalada')" 
+                  class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg font-medium">
+            Continuar con mi orden
+          </button>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+  
+
+      <!-- PRODUCTO BANANA SPLIT  -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      <!-- Imagen -->
+      <img src="img/ensalada_frutas/banana_split.png" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Banana Split</h3>
+        <p class="text-sm text-gray-600">3 sabores de helado, banano, queso, chantilly, salsa de chocolate, barquillo y cereza</p>
+        <p class="text-pink-600 font-bold mt-2">$14.900</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_banana_split')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_banana_split" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_banana_split')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/ensalada_frutas/banana_split.png" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Banana Split</h3>
+            <p class="text-xl font-semibold text-pink-600">$14.900</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              3 sabores de helado, banano, queso, chantilly, salsa de chocolate, barquillo y cereza. ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModal('modal_banana_split')" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PARFAIT -->
+
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      <!-- Imagen -->
+      <img src="img/ensalada_frutas/parfait.png" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Parfait</h3>
+        <p class="text-sm text-gray-600">Yogur griego, granola, fresas y mango</p>
+        <p class="text-pink-600 font-bold mt-2">$12.900</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_parfait')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_parfait" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_parfait')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/ensalada_frutas/parfait.png" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Parfait</h3>
+            <p class="text-xl font-semibold text-pink-600">$12.900</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              Yogur griego, granola, fresas y mango. ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModal('modal_parfait')" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <h1 class="text-lg font-bold text-pink-600">Especial</h1>
+
+    <!-- Fondue -->
+
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      
+      <!-- Etiqueta NUEVO en verde -->
+      <div class="absolute top-2 right-2 bg-green-500 text-white text-[12px] px-3 py-[2px] font-semibold shadow-sm rounded-lg z-10 transform rotate-12">
+        NUEVO
+      </div>
+      <!-- Imagen -->
+      <img src="img/ensalada_frutas/fondue.png" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Fondue</h3>
+        <p class="text-sm text-gray-600">Chocolate derretido, masmelos, fresas, banano, durazno, 2 porciones de helado</p>
+        <p class="text-pink-600 font-bold mt-2">$24.900</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_fondue')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_fondue" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_fondue')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/ensalada_frutas/fondue.png" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Fondue</h3>
+            <p class="text-xl font-semibold text-pink-600">$24.900</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              Chocolate derretido, masmelos, fresas, banano, durazno, 2 porciones de helado. ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModal('modal_fondue')" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PICADA DE FRUTAS -->
+     
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      <!-- Imagen -->
+      <img src="img/ensalada_frutas/ensalada_frutas.png" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Picada de Frutas</h3>
+        <p class="text-sm text-gray-600">Manzana, papaya, banano, mango, piña, fresa</p>
+        <p class="text-pink-600 font-bold mt-2">$11.900</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_picada_frutas')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_picada_frutas" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_picada_frutas')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/ensalada_frutas/ensalada_frutas.png" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Picada de frutas</h3>
+            <p class="text-xl font-semibold text-pink-600">$11.900</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              Manzana, papaya, banano, mango, piña, fresa. ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModal('modal_picada_frutas')" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+     <!-- FRES BANANO CON QUESO -->
+     
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      <!-- Imagen -->
+      <img src="img/ensalada_frutas/ensalada_frutas.png" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">FresBano con Queso</h3>
+        <p class="text-sm text-gray-600">Crema de la casa, fresa, banano, queso cuajada rayado, salsa arequipe</p>
+        <p class="text-pink-600 font-bold mt-2">$16.900</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_fresBano')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_fresBano" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_fresBano')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/ensalada_frutas/ensalada_frutas.png" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">FresBano con Queso</h3>
+            <p class="text-xl font-semibold text-pink-600">$16.900</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              Crema de la casa, fresa, banano, queso cuajada rayado, salsa arequipe. ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModal('modal_fresBano')" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+     <!-- ENSALADA LIGHT -->
+     
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      <!-- Imagen -->
+      <img src="img/ensalada_frutas/ensalada_frutas.png" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Ensalada LIGHT</h3>
+        <p class="text-sm text-gray-600">Yogur light, banano, papaya, mango, manzana verde, granola, kiwi y fresas</p>
+        <p class="text-pink-600 font-bold mt-2">$15.900</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_ensalada_light')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_ensalada_light" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_ensalada_light')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/ensalada_frutas/ensalada_frutas.png" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Ensalada LIGHT</h3>
+            <p class="text-xl font-semibold text-pink-600">$15.900</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              Yogur light, banano, papaya, mango, manzana verde, granola, kiwi y fresas. ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModal('modal_ensalada_light')" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+         <!-- BROWNI CON HELADO -->
+     
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      <!-- Imagen -->
+      <img src="img/ensalada_frutas/ensalada_frutas.png" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Brownie con helado</h3>
+        <p class="text-sm text-gray-600">1 sabor de helado, brownie, fresa y chantilly</p>
+        <p class="text-pink-600 font-bold mt-2">$11.900</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_brownieHelado')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_brownieHelado" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_brownieHelado')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/ensalada_frutas/ensalada_frutas.png" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Brownie con Helado</h3>
+            <p class="text-xl font-semibold text-pink-600">$11.900</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              1 sabor de helado, brownie, fresa y chantilly. ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModal('modal_brownieHelado')" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Sección: GRANIZADOS -->
+  <div id="granizados" class="p-4 space-y-4 hidden">
+    <h2 class="text-lg font-bold text-pink-600">Granizados</h2>
+
+
+    <!-- PRODUCTO RATON  -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+   <!-- Imagen izquierda -->
+      <img src="img/granizados/granizado1.png" class="w-24 h-24 object-cover rounded-lg" alt="Granizado 1">
+
+      <!-- Centro con lista -->
+      <div class="flex-1 text-center">
+        <h3 class="text-lg font-bold text-gray-800 mb-2">Granizados disponibles</h3>
+
+        <ul class="grid grid-cols-2 gap-y-1 text-sm text-gray-700 mb-3">
+          <li>Maracumango</li>
+          <li>Mango biche</li>
+          <li>Café</li>
+          <li>Oreo</li>
+          <li>Limón</li>
+          <li>Maracuyá</li>
+          <li>Fresa</li>
+          <li>Mango</li>
+          <li>Guanábana</li>
+        </ul>
+
+        <p class="text-sm text-gray-600">Dos presentaciones disponibles del mismo producto.</p>
+        <p class="text-pink-600 font-bold mt-1">$10.000</p>
+        <p class="text-pink-600 font-bold">Con chantilly $12.000</p>
+      </div>
+
+      <!-- Imagen derecha -->
+      <img src="img/granizados/granizado2.png" class="w-24 h-24 object-cover rounded-lg" alt="Granizado 2">
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_raton')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_raton" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_raton')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/chikis/raton.png" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Ratón</h3>
+            <p class="text-xl font-semibold text-pink-600">$9.000</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModalBonito()" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+
+
+  </div>
+
+<!-- Carrito modal mejorado y centrado -->
+<div id="carritoVisualizacion"
+     class="fixed inset-0 bg-white p-5 rounded-2xl shadow-2xl max-w-sm w-full m-auto max-h-[90vh] overflow-y-auto hidden z-50 transition-all duration-300 ease-in-out">
+  <h3 class="text-xl font-semibold text-center mb-4 text-pink-600">🛍️ Mi pedido</h3>
+
+  <ul id="carritoItemsLista" class="space-y-2 text-sm text-gray-700">
+    <!-- Productos se agregan aquí -->
+  </ul>
+
+  <button onclick="enviarPorWhatsapp()"
+          class="mt-6 bg-teal-500 hover:bg-teal-600 text-white py-2 px-4 rounded-full w-full font-medium">
+    📲 Ordenar por WhatsApp
+  </button>
+
+  <!-- Botón para agregar más helados y cerrar el modal -->
+ <!-- Botón para agregar más helados y cerrar el modal -->
+  <button onclick="toggleModalPedido(false, 'carritoVisualizacion')"
+          class="mt-4 bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-full w-full font-medium">
+    🍦 Agregar más helados
+  </button>
+</div>
+
+<!-- Agrega la clase animate-bounce -->
+<button id="showCarrito" class="fixed bottom-6 left-6 bg-pink-600 text-white p-3 rounded-full shadow-lg hover:bg-pink-700 transition animate-bounce">
+  🛒 <span class="font-bold">Ver mis helados agregados (<span id="carrito-count">0</span>)</span>
+</button>
+
+<!-- Alerta bonita tipo toast -->
+<div id="alerta" class="hidden fixed bottom-20 left-6 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg z-50">
+  Antes de ordenar debes seleccionar por lo menos un helado.
+</div>
+
+
+<script>
+
+function toggleModal(show) {
+    const modal = document.getElementById('modalDetalles1');
+    modal.style.display = show ? 'flex' : 'none';
+  }
+
+function toggleModalPedido(mostrar, idModal) {
+  const modal = document.getElementById('carritoVisualizacion');
+  if (modal) {
+    modal.style.display = mostrar ? 'flex' : 'none';
+  }
+}
+function toggleModal2(show) {
+    const modal = document.getElementById('modalDetalles2');
+    modal.style.display = show ? 'flex' : 'none';
+  }
+
+function toggleModal3(show) {
+      const modal = document.getElementById('modalDetalles3');
+      modal.style.display = show ? 'flex' : 'none';
+    }
+
+function abrirCantidadModal(nombre, precio, resumenId) {
+  productoTemporal = { nombre, precio, resumenId };
+  document.getElementById('cantidadSeleccionada').value = 1;
+  document.getElementById('observaciones').value = ''; // Limpiar campo de observaciones
+  document.getElementById('cantidadModal').classList.remove('hidden');
+}
+
+// Función para cerrar el modal de cantidad
+function cerrarCantidadModal() {
+  document.getElementById('cantidadModal').classList.add('hidden');
+}
+
+function confirmarCantidad() {
+  const cantidad = parseInt(document.getElementById('cantidadSeleccionada').value);
+  const observacion = document.getElementById('observaciones').value.trim(); // Nueva línea
+
+  if (cantidad > 0) {
+    const { nombre, precio, resumenId } = productoTemporal;
+    const productoExistente = carrito.find(item => item.nombre === nombre);
+
+    if (productoExistente) {
+      productoExistente.cantidad += cantidad;
+      // Si quieres guardar observaciones adicionales, podrías concatenarlas:
+      if (observacion) {
+        productoExistente.observaciones = (productoExistente.observaciones || '') + ' | ' + observacion;
+      }
+    } else {
+      carrito.push({ nombre, precio, cantidad, observaciones: observacion }); // Añadir observaciones
+    }
+
+    actualizarCarrito();
+
+    // Actualizar resumen de producto
+    const resumen = document.getElementById(resumenId);
+    if (resumen) {
+      resumen.textContent = `Carrito: ${carrito.reduce((acc, item) => acc + item.cantidad, 0)} productos agregados.`;
+    }
+
+    cerrarCantidadModal();
+    mostrarAlerta(`${cantidad} x ${nombre} agregados a tu pedido.`, 'bg-green-500');
+  }
+}
+
+// Arreglo de productos en el carrito
+let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+// Función para actualizar el carrito visualmente y en localStorage
+function actualizarCarrito() {
+  // Mostrar los productos en el carrito
+  const listaCarrito = document.getElementById('carritoItemsLista');
+  listaCarrito.innerHTML = ''; // Limpiar el carrito visual
+  carrito.forEach(producto => {
+    const li = document.createElement('li');
+    li.innerHTML = `${producto.cantidad} x ${producto.nombre} - 💲${(producto.precio * producto.cantidad).toLocaleString()}`;
+    if (producto.observaciones) {
+      li.innerHTML += `<br><span class="text-sm text-gray-500">📝 ${producto.observaciones}</span>`;
+    }
+    listaCarrito.appendChild(li);
+  });
+
+  // Actualizamos el número de productos en el botón flotante
+  const carritoCount = document.getElementById('carrito-count');
+  carritoCount.textContent = carrito.reduce((acc, item) => acc + item.cantidad, 0);
+
+  // Guardar el carrito actualizado en localStorage
+  localStorage.setItem('carrito', JSON.stringify(carrito));
+}
+
+
+// Función para mostrar/ocultar el carrito
+function toggleCarrito() {
+  const carritoVisualizacion = document.getElementById('carritoVisualizacion');
+  carritoVisualizacion.style.display = carritoVisualizacion.style.display === 'block' ? 'none' : 'block';
+}
+function limpiarCarrito() {
+  carrito = [];
+  localStorage.removeItem('carrito');
+  actualizarCarrito();
+}
+
+function enviarPorWhatsapp() {
+  if (carrito.length === 0) {
+    mostrarAlerta("Primero agrega al menos una unidad a tu pedido.");
+    return;
+  }
+
+  let mensaje = "Hola, quiero pedir:\n";
+  let total = 0;
+
+  carrito.forEach(p => {
+    const subtotal = p.precio * p.cantidad;
+    mensaje += `• ${p.cantidad} x ${p.nombre} - 💲${subtotal.toLocaleString()}`;
+    if (p.observaciones) {
+      mensaje += `\n   ↳ 📝 ${p.observaciones}`;
+    }
+    mensaje += `\n`;
+    total += subtotal;
+  });
+
+  mensaje += `\nTotal: 💲${total.toLocaleString()}`;
+
+  const url = `https://wa.me/573145855142?text=${encodeURIComponent(mensaje)}`;
+  window.open(url, '_blank');
+
+  // 🔁 Vaciar carrito con un pequeño retraso
+  setTimeout(() => {
+    limpiarCarrito();
+  }, 500);
+}
+
+
+// Función para mostrar alertas tipo toast
+function mostrarAlerta(mensaje, color = 'bg-red-500') {
+  const alerta = document.getElementById('alerta');
+  alerta.textContent = mensaje;
+  alerta.className = `fixed bottom-20 left-6 text-white px-4 py-2 rounded-lg shadow-lg z-50 ${color}`;
+  alerta.classList.remove('hidden');
+
+  setTimeout(() => {
+    alerta.classList.add('hidden');
+  }, 3000); // se oculta después de 3 segundos
+}
+
+// Asignar la acción al botón flotante
+document.getElementById('showCarrito').onclick = toggleCarrito;
+
+// Al cargar la página, actualizamos el carrito
+window.onload = actualizarCarrito;
+</script>
+
+<script>
+  function mostrarSeccion(id) {
+    const secciones = ['postres', 'obleas', 'chiquis', 'ensalada_frutas', 'granizados'];
+    secciones.forEach(sec => {
+      const section = document.getElementById(sec);
+      if (section) section.classList.toggle('hidden', sec !== id);
+
+      const btn = document.getElementById('btn-' + sec);
+      if (btn) {
+        if (sec === id) {
+          btn.classList.remove('bg-gray-200', 'text-gray-700');
+          btn.classList.add('bg-pink-500', 'text-white');
+        } else {
+          btn.classList.remove('bg-pink-500', 'text-white');
+          btn.classList.add('bg-gray-200', 'text-gray-700');
+        }
+      }
+    });
+  }
+
+  mostrarSeccion('postres'); // Mostrar por defecto
+</script>
+
+
+
+
+<script>
+function abrirModal(id) {
+  document.getElementById(id).classList.remove('hidden');
+}
+
+function cerrarModal(id) {
+  document.getElementById(id).classList.add('hidden');
+}
+</script>
+
+
+
+
 </body>
 </html>
-
