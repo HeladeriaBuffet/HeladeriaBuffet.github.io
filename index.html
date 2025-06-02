@@ -83,83 +83,6 @@
   setInterval(cambiarMensaje, 3000);
 </script>
 
-<style>
-
-.carousel-wrapper {
-  perspective: 1000px;
-  margin: 0rem auto; /* <-- Esto agrega espacio arriba y abajo */
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-.carousel {
-  margin: 0 auto;
-  width: 200px;
-  height: 300px;
-  position: relative;
-  transform-style: preserve-3d;
-  animation: rotate360 40s infinite linear;
-
-}
-
-.carousel__face {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  top: 50px;
-  left: 0;
-  right: 0;
-  margin: auto;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1.2rem;
-  text-align: center;
-  border-radius: 10px;
-}
-
-/* Animation */
-@keyframes rotate360 {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(-360deg);
-  }
-}
-
-/* Responsive */
-@media screen and (max-width: 480px) {
-  .carousel {
-    max-width: 90%;
-    height: 180px;
-  }
-  .carousel__face {
-    width: 90%;
-    height: 160px;
-    font-size: 1rem;
-  }
-}
-</style>
-
-
-<div class="carousel-wrapper">
-  <div class="carousel-container">
-    <div class="carousel">
-      <div class="carousel__face" style="transform: rotateY(0deg) translateZ(260px); background-image: url('img/local.jpeg');"></div>
-      <div class="carousel__face" style="transform: rotateY(40deg) translateZ(260px); background-image: url('img/copa_fantasia.jpeg');"></div>
-      <div class="carousel__face" style="transform: rotateY(80deg) translateZ(260px); background-image: url('img/oblea.jpeg');"></div>
-      <div class="carousel__face" style="transform: rotateY(120deg) translateZ(260px); background-image: url('img/waflebono.jpeg');"></div>
-      <div class="carousel__face" style="transform: rotateY(160deg) translateZ(260px); background-image: url('img/ensalada_frutas.jpeg');"></div>
-      <div class="carousel__face" style="transform: rotateY(200deg) translateZ(260px); background-image: url('img/gatico.jpeg');"></div>
-      <div class="carousel__face" style="transform: rotateY(240deg) translateZ(260px); background-image: url('img/cono_loco.jpeg');"></div>
-      <div class="carousel__face" style="transform: rotateY(280deg) translateZ(260px); background-image: url('img/barquito.jpeg');"></div>
-    </div>
-  </div>
-</div>
 
 <!-- Navbar (sit on top) -->
       <div class="w3-top">
@@ -191,6 +114,8 @@
 
 
 
+<br>
+<br>
 <br>
   <!-- Navegación por categorías -->
 <div class="overflow-x-auto whitespace-nowrap px-4">
@@ -1562,69 +1487,103 @@
 
   <!-- Sección: GRANIZADOS -->
   <div id="granizados" class="p-4 space-y-4 hidden">
-    <h2 class="text-lg font-bold text-pink-600">Granizados</h2>
-
-
-    <!-- PRODUCTO RATON  -->
+    <h2 class="text-lg font-bold text-pink-600">Granizados </h2>
     <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
-   <!-- Imagen izquierda -->
-      <img src="img/granizados/granizado1.png" class="w-24 h-24 object-cover rounded-lg" alt="Granizado 1">
+      <!-- Imagen -->
+      <img src="img/granizados/granizado2.png" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
 
-      <!-- Centro con lista -->
-      <div class="flex-1 text-center">
-        <h3 class="text-lg font-bold text-gray-800 mb-2">Granizados disponibles</h3>
-
-        <ul class="grid grid-cols-2 gap-y-1 text-sm text-gray-700 mb-3">
-          <li>Maracumango</li>
-          <li>Mango biche</li>
-          <li>Café</li>
-          <li>Oreo</li>
-          <li>Limón</li>
-          <li>Maracuyá</li>
-          <li>Fresa</li>
-          <li>Mango</li>
-          <li>Guanábana</li>
-        </ul>
-
-        <p class="text-sm text-gray-600">Dos presentaciones disponibles del mismo producto.</p>
-        <p class="text-pink-600 font-bold mt-1">$10.000</p>
-        <p class="text-pink-600 font-bold">Con chantilly $12.000</p>
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Granizados </h3>
+        <p class="text-sm text-gray-600">Varios sabores disponibles</p>
+        <p class="text-pink-600 font-bold mt-2">Desde $10.000</p>
       </div>
 
-      <!-- Imagen derecha -->
-      <img src="img/granizados/granizado2.png" class="w-24 h-24 object-cover rounded-lg" alt="Granizado 2">
-
       <!-- Botón "+" -->
-      <button onclick="abrirModal('modal_raton')"
+      <button onclick="abrirModal('modal_granizados')"
         class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
         +
       </button>
 
       <!-- Modal -->
-      <div id="modal_raton" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+      <div id="modal_granizados" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
         <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
 
           <!-- Botón cerrar -->
-          <button onclick="cerrarModal('modal_raton')" 
+          <button onclick="cerrarModal('modal_granizados')" 
                   class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
             ✕
           </button>
 
           <!-- Imagen -->
           <div class="w-full flex justify-center pt-6">
-            <img src="img/chikis/raton.png" 
+            <img src="img/granizados/granizado2.png" 
                 alt="Oblea Sencilla" 
                 class="max-h-60 w-auto object-contain">
           </div>
 
           <!-- Contenido -->
           <div class="p-4 text-center space-y-3">
-            <h3 class="text-base font-bold uppercase text-gray-900">Ratón</h3>
-            <p class="text-xl font-semibold text-pink-600">$9.000</p>
+            <h3 class="text-base font-bold uppercase text-gray-900">Granizados</h3>
+            <p class="text-xl font-semibold text-pink-600">$10.000</p>
             <p class="text-sm text-gray-600 leading-snug">
-              ¡Pide ya!
+              Con chantilly $ 12.000. ¡Pide ya!
             </p>
           </div>
+          <!-- Selector de sabores (integrado y elegante) -->
+          <div class="px-4 pb-4 text-left">
+            <label class="block text-sm font-medium text-gray-700 mb-2">Sabores disponibles:</label>
+            <div 
+              class="border border-gray-200 rounded-lg p-3 max-h-36 overflow-y-auto bg-gray-50 shadow-inner text-sm flex flex-wrap gap-2"
+              style="background-image: url('img/granizados/granizado1.png'); 
+                    background-size: cover; 
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-attachment: local; /* para que el fondo se mueva con el scroll */
+                    "
+            >
+            <div class="border border-gray-200 rounded-lg p-3 max-h-36 overflow-y-auto bg-gray-50 shadow-inner text-sm
+                        flex flex-wrap gap-2">
+              
+              <label class="flex items-center gap-2 w-1/2">
+                <input type="checkbox" class="sabor-opcion text-pink-500 focus:ring-pink-500" value="Fresa">
+                <span>Maracumango</span>
+              </label>
+              <label class="flex items-center gap-2 w-1/2">
+                <input type="checkbox" class="sabor-opcion text-pink-500 focus:ring-pink-500" value="Mora">
+                <span>Mango biche</span>
+              </label>
+              <label class="flex items-center gap-2 w-1/2">
+                <input type="checkbox" class="sabor-opcion text-pink-500 focus:ring-pink-500" value="Maracuyá">
+                <span>Cafe</span>
+              </label>
+              <label class="flex items-center gap-2 w-1/2">
+                <input type="checkbox" class="sabor-opcion text-pink-500 focus:ring-pink-500" value="Lulo">
+                <span>Oreo</span>
+              </label>
+              <label class="flex items-center gap-2 w-1/2">
+                <input type="checkbox" class="sabor-opcion text-pink-500 focus:ring-pink-500" value="Lulo">
+                <span>Limon</span>
+              </label>
+              <label class="flex items-center gap-2 w-1/2">
+                <input type="checkbox" class="sabor-opcion text-pink-500 focus:ring-pink-500" value="Lulo">
+                <span>Maracuya</span>
+              </label>
+              <label class="flex items-center gap-2 w-1/2">
+                <input type="checkbox" class="sabor-opcion text-pink-500 focus:ring-pink-500" value="Lulo">
+                <span>Fresa</span>
+              </label>
+              <label class="flex items-center gap-2 w-1/2">
+                <input type="checkbox" class="sabor-opcion text-pink-500 focus:ring-pink-500" value="Lulo">
+                <span>Mango</span>
+              </label>
+              <label class="flex items-center gap-2 w-1/2">
+                <input type="checkbox" class="sabor-opcion text-pink-500 focus:ring-pink-500" value="Lulo">
+                <span>Guanabana</span>
+              </label>
+            </div>
+          </div>
+
 
           <!-- Botones -->
           <div class="px-4 pb-5 space-y-2">
@@ -1632,7 +1591,7 @@
                     class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
               ➕ Agregar a mi orden
             </button>
-            <button onclick="cerrarModalBonito()" 
+            <button onclick="cerrarModal('modal_granizados')" 
                     class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
               Continuar con mi orden
             </button>
@@ -1640,8 +1599,8 @@
         </div>
       </div>
     </div>
-  
 
+  </div>
 
 
   </div>
@@ -1673,10 +1632,36 @@
   🛒 <span class="font-bold">Ver mis helados agregados (<span id="carrito-count">0</span>)</span>
 </button>
 
-<!-- Alerta bonita tipo toast -->
-<div id="alerta" class="hidden fixed bottom-20 left-6 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg z-50">
-  Antes de ordenar debes seleccionar por lo menos un helado.
-</div>
+<script>
+  function toggleDropdown() {
+    const dropdown = document.getElementById('dropdownSabores');
+    dropdown.classList.toggle('hidden');
+  }
+
+  const selectAllDropdown = document.getElementById("selectAllDropdown");
+  const saborCheckboxes = document.querySelectorAll(".sabor-checkbox");
+
+  selectAllDropdown.addEventListener("change", function () {
+    saborCheckboxes.forEach(cb => cb.checked = this.checked);
+  });
+
+  saborCheckboxes.forEach(cb => {
+    cb.addEventListener("change", () => {
+      const allChecked = [...saborCheckboxes].every(cb => cb.checked);
+      selectAllDropdown.checked = allChecked;
+    });
+  });
+
+  // Cierra el dropdown si haces clic fuera
+  window.addEventListener("click", function (e) {
+    const dropdown = document.getElementById("dropdownSabores");
+    const button = document.querySelector("button[onclick='toggleDropdown()']");
+    if (!dropdown.contains(e.target) && !button.contains(e.target)) {
+      dropdown.classList.add("hidden");
+    }
+  });
+</script>
+
 
 
 <script>
