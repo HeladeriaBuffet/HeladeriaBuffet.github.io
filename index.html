@@ -13,7 +13,7 @@
     DOMICILIOS EN PEREIRA Y DOSQUEBRADAS
   </div>
 
-  <div class="fixed top-10 left-0 w-full bg-[#FFFCF5] text-black shadow-md z-40">
+  <div class="fixed top-10 left-0 w-full bg-white text-black shadow-md z-40">
     <div class="max-w-screen-lg mx-auto flex items-center p-4 gap-4">
 
       <!-- Logo más grande -->
@@ -129,7 +129,7 @@
     <!-- Botones inactivos -->
     <button onclick="mostrarSeccion('obleas')" id="btn-obleas"
             class="px-4 py-2 rounded-full text-sm font-medium bg-gray-200 text-gray-700 hover:bg-pink-500 hover:text-white transition whitespace-nowrap">
-      Obleas Especiales
+      Oblea y Wafle
     </button>
     <button onclick="mostrarSeccion('chiquis')" id="btn-chiquis"
             class="px-4 py-2 rounded-full text-sm font-medium bg-gray-200 text-gray-700 hover:bg-pink-500 hover:text-white transition whitespace-nowrap">
@@ -141,7 +141,15 @@
     </button>
     <button onclick="mostrarSeccion('granizados')" id="btn-granizados"
             class="px-4 py-2 rounded-full text-sm font-medium bg-gray-200 text-gray-700 hover:bg-pink-500 hover:text-white transition whitespace-nowrap">
-      Granizados
+      Granizados y Limonadas
+    </button>
+    <button onclick="mostrarSeccion('malteadas')" id="btn-malteadas"
+            class="px-4 py-2 rounded-full text-sm font-medium bg-gray-200 text-gray-700 hover:bg-pink-500 hover:text-white transition whitespace-nowrap">
+      Super Malteadas
+    </button>
+    <button onclick="mostrarSeccion('bebidas')" id="btn-bedidas"
+            class="px-4 py-2 rounded-full text-sm font-medium bg-gray-200 text-gray-700 hover:bg-pink-500 hover:text-white transition whitespace-nowrap">
+      Bebidas
     </button>
   </div>
 </div>
@@ -1505,9 +1513,9 @@
         +
       </button>
 
-      <!-- Modal -->
+        <!-- Modal -->
       <div id="modal_granizados" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
-        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative flex flex-col max-h-[90vh] overflow-hidden">
 
           <!-- Botón cerrar -->
           <button onclick="cerrarModal('modal_granizados')" 
@@ -1516,77 +1524,67 @@
           </button>
 
           <!-- Imagen -->
-          <div class="w-full flex justify-center pt-6">
+          <div class="w-full flex justify-center p-4">
             <img src="img/granizados/granizado2.png" 
-                alt="Oblea Sencilla" 
-                class="max-h-60 w-auto object-contain">
+                alt="Granizado" 
+                class="max-h-48 w-auto object-contain">
           </div>
 
-          <!-- Contenido -->
-          <div class="p-4 text-center space-y-3">
-            <h3 class="text-base font-bold uppercase text-gray-900">Granizados</h3>
-            <p class="text-xl font-semibold text-pink-600">$10.000</p>
-            <p class="text-sm text-gray-600 leading-snug">
-              Con chantilly $ 12.000. ¡Pide ya!
-            </p>
-          </div>
-          <!-- Selector de sabores (integrado y elegante) -->
-          <div class="px-4 pb-4 text-left">
-            <label class="block text-sm font-medium text-gray-700 mb-2">Sabores disponibles:</label>
-            <div 
-              class="border border-gray-200 rounded-lg p-3 max-h-36 overflow-y-auto bg-gray-50 shadow-inner text-sm flex flex-wrap gap-2"
-              style="background-image: url('img/granizados/granizado1.png'); 
-                    background-size: cover; 
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    background-attachment: local; /* para que el fondo se mueva con el scroll */
-                    "
-            >
-            <div class="border border-gray-200 rounded-lg p-3 max-h-36 overflow-y-auto bg-gray-50 shadow-inner text-sm
-                        flex flex-wrap gap-2">
-              
-              <label class="flex items-center gap-2 w-1/2">
-                <input type="checkbox" class="sabor-opcion text-pink-500 focus:ring-pink-500" value="Fresa">
+          <!-- Contenido scrollable -->
+          <div class="px-4 flex-1 overflow-y-auto space-y-4 pb-4">
+            <!-- Info -->
+            <div class="text-center space-y-2">
+              <h3 class="text-base font-bold uppercase text-gray-900">Granizados</h3>
+              <p class="text-xl font-semibold text-pink-600">$10.000</p>
+              <p class="text-sm text-gray-600 leading-snug">Con chantilly $12.000. ¡Pide ya!</p>
+            </div>
+
+            <!-- Sabores -->
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Sabores disponibles:</label>
+              <div class="grid grid-cols-2 gap-2 max-h-40 overflow-y-auto p-3 rounded-lg bg-gray-50 shadow-inner text-sm">
+                <label class="flex items-center gap-2 bg-white border border-gray-200 rounded-lg p-2 hover:bg-pink-50 transition cursor-pointer">
+                <input type="radio" name="sabor_granizado" class="text-pink-1000" value="Maracumango">
                 <span>Maracumango</span>
               </label>
-              <label class="flex items-center gap-2 w-1/2">
-                <input type="checkbox" class="sabor-opcion text-pink-500 focus:ring-pink-500" value="Mora">
+              <label class="flex items-center gap-2 bg-white border border-gray-200 rounded-lg p-2 hover:bg-pink-50 transition cursor-pointer">
+                <input type="radio" name="sabor_granizado" class="text-pink-500" value="Mango biche">
                 <span>Mango biche</span>
               </label>
-              <label class="flex items-center gap-2 w-1/2">
-                <input type="checkbox" class="sabor-opcion text-pink-500 focus:ring-pink-500" value="Maracuyá">
-                <span>Cafe</span>
+              <label class="flex items-center gap-2 bg-white border border-gray-200 rounded-lg p-2 hover:bg-pink-50 transition cursor-pointer">
+                <input type="radio" name="sabor_granizado" class="text-pink-500" value="Café">
+                <span>Café</span>
               </label>
-              <label class="flex items-center gap-2 w-1/2">
-                <input type="checkbox" class="sabor-opcion text-pink-500 focus:ring-pink-500" value="Lulo">
+              <label class="flex items-center gap-2 bg-white border border-gray-200 rounded-lg p-2 hover:bg-pink-50 transition cursor-pointer">
+                <input type="radio" name="sabor_granizado" class="text-pink-500" value="Oreo">
                 <span>Oreo</span>
               </label>
-              <label class="flex items-center gap-2 w-1/2">
-                <input type="checkbox" class="sabor-opcion text-pink-500 focus:ring-pink-500" value="Lulo">
-                <span>Limon</span>
+              <label class="flex items-center gap-2 bg-white border border-gray-200 rounded-lg p-2 hover:bg-pink-50 transition cursor-pointer">
+                <input type="radio" name="sabor_granizado" class="text-pink-500" value="Limón">
+                <span>Limón</span>
               </label>
-              <label class="flex items-center gap-2 w-1/2">
-                <input type="checkbox" class="sabor-opcion text-pink-500 focus:ring-pink-500" value="Lulo">
-                <span>Maracuya</span>
+              <label class="flex items-center gap-2 bg-white border border-gray-200 rounded-lg p-2 hover:bg-pink-50 transition cursor-pointer">
+                <input type="radio" name="sabor_granizado" class="text-pink-500" value="Maracuyá">
+                <span>Maracuyá</span>
               </label>
-              <label class="flex items-center gap-2 w-1/2">
-                <input type="checkbox" class="sabor-opcion text-pink-500 focus:ring-pink-500" value="Lulo">
+              <label class="flex items-center gap-2 bg-white border border-gray-200 rounded-lg p-2 hover:bg-pink-50 transition cursor-pointer">
+                <input type="radio" name="sabor_granizado" class="text-pink-500" value="Fresa">
                 <span>Fresa</span>
               </label>
-              <label class="flex items-center gap-2 w-1/2">
-                <input type="checkbox" class="sabor-opcion text-pink-500 focus:ring-pink-500" value="Lulo">
+              <label class="flex items-center gap-2 bg-white border border-gray-200 rounded-lg p-2 hover:bg-pink-50 transition cursor-pointer">
+                <input type="radio" name="sabor_granizado" class="text-pink-500" value="Mango">
                 <span>Mango</span>
               </label>
-              <label class="flex items-center gap-2 w-1/2">
-                <input type="checkbox" class="sabor-opcion text-pink-500 focus:ring-pink-500" value="Lulo">
-                <span>Guanabana</span>
+              <label class="flex items-center gap-2 bg-white border border-gray-200 rounded-lg p-2 hover:bg-pink-50 transition cursor-pointer col-span-2">
+                <input type="radio" name="sabor_granizado" class="text-pink-500" value="Guanábana">
+                <span>Guanábana</span>
               </label>
+              </div>
             </div>
           </div>
 
-
-          <!-- Botones -->
-          <div class="px-4 pb-5 space-y-2">
+          <!-- Botones fijos -->
+          <div class="px-4 pb-4 space-y-2 border-t border-gray-200">
             <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
                     class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
               ➕ Agregar a mi orden
@@ -1600,10 +1598,1038 @@
       </div>
     </div>
 
+
+    <!-- producto Limonadas -->
+
+    <h2 class="text-lg font-bold text-pink-600">Limonadas </h2>
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      <!-- Imagen -->
+      <img src="img/Limonadas/limonada.png" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Limonadas </h3>
+        <p class="text-sm text-gray-600">Varios sabores disponibles</p>
+        <p class="text-pink-600 font-bold mt-2">$10.000</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_limonada')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+        <!-- Modal -->
+      <div id="modal_limonada" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative flex flex-col max-h-[90vh] overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_limonada')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center p-4">
+            <img src="img/Limonadas/limonada.png" 
+                alt="Granizado" 
+                class="max-h-48 w-auto object-contain">
+          </div>
+
+          <!-- Contenido scrollable -->
+          <div class="px-4 flex-1 overflow-y-auto space-y-4 pb-4">
+            <!-- Info -->
+            <div class="text-center space-y-2">
+              <h3 class="text-base font-bold uppercase text-gray-900">limonadas</h3>
+              <p class="text-xl font-semibold text-pink-600">$10.000</p>
+              <p class="text-sm text-gray-600 leading-snug">¡Pide ya!</p>
+            </div>
+
+            <!-- Sabores -->
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Sabores disponibles:</label>
+              <div class="grid grid-cols-2 gap-2 max-h-40 overflow-y-auto p-3 rounded-lg bg-gray-50 shadow-inner text-sm">
+                <label class="flex items-center gap-2 bg-white border border-gray-200 rounded-lg p-2 hover:bg-pink-50 transition cursor-pointer">
+                <input type="radio" name="sabor_granizado" class="text-pink-1000" value="Coco">
+                <span>Coco</span>
+              </label>
+              <label class="flex items-center gap-2 bg-white border border-gray-200 rounded-lg p-2 hover:bg-pink-50 transition cursor-pointer">
+                <input type="radio" name="sabor_granizado" class="text-pink-500" value="Hierbabuena">
+                <span>Hierbabuena</span>
+              </label>
+              <label class="flex items-center gap-2 bg-white border border-gray-200 rounded-lg p-2 hover:bg-pink-50 transition cursor-pointer">
+                <input type="radio" name="sabor_granizado" class="text-pink-500" value="Cherry">
+                <span>Cherry</span>
+              </label>
+              <label class="flex items-center gap-2 bg-white border border-gray-200 rounded-lg p-2 hover:bg-pink-50 transition cursor-pointer">
+                <input type="radio" name="sabor_granizado" class="text-pink-500" value="Frutos rojos">
+                <span>Frutos rojos</span>
+              </label>
+              <label class="flex items-center gap-2 bg-white border border-gray-200 rounded-lg p-2 hover:bg-pink-50 transition cursor-pointer">
+                <input type="radio" name="sabor_granizado" class="text-pink-500" value="Maracuya">
+                <span>Maracuya</span>
+              </label>
+            
+              </div>
+            </div>
+          </div>
+
+          <!-- Botones fijos -->
+          <div class="px-4 pb-4 space-y-2 border-t border-gray-200">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModal('modal_limonada')" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- producto Cholados -->
+
+    <h2 class="text-lg font-bold text-pink-600">Cholaos</h2>
+
+    <!-- PRODUCTO CHOLADO SIN HELADO -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+    <!-- Imagen -->
+    <img src="img/Cholaos/cholao_sin_helado.png" class="rounded-xl w-20 h-20 object-contain" alt="Ensalada de Frutas">
+
+    <!-- Detalles -->
+    <div class="flex-1">
+      <h3 class="font-semibold text-gray-800">Cholao sin helado</h3>
+      <p class="text-sm text-gray-600">Disponibles (Pequeño y Grande)</p>
+
+      <p class="text-pink-600 font-bold mt-1">Desde $11.000</p>
+    </div>
+
+    <!-- Botón "+" -->
+    <button onclick="abrirModal('modal_cholado_sin_helado')" 
+      class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+      +
+    </button>
+
+    
+    <!-- Modal con diseño mejorado -->
+    <div id="modal_cholado_sin_helado" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+      <div class="bg-white rounded-2xl shadow-2xl w-full max-w-sm relative overflow-hidden">
+
+        <!-- Botón cerrar -->
+        <button onclick="cerrarModal('modal_cholado_sin_helado')" 
+                class="absolute top-3 right-3 text-gray-400 hover:text-red-500 text-2xl font-bold z-10">
+          ✕
+        </button>
+
+        <!-- Imagen centrada -->
+        <div class="w-full flex justify-center pt-6">
+          <img src="img/Cholaos/cholao_sin_helado.png" alt="Ensalada de Frutas" class="max-h-52 w-auto object-contain">
+        </div>  
+
+        <!-- Contenido -->
+        <div class="p-5 text-center space-y-4">
+          <h3 class="text-lg font-bold uppercase text-gray-900">Cholao</h3>
+          <p class="text-sm text-gray-600 leading-snug">
+            sin helado.
+          </p>
+
+          <!-- Opciones de tamaño -->
+          <div class="space-y-2 text-left">
+
+            <!-- Otras opciones -->
+            <button onclick="abrirCantidadModal('Fruta Pequeña', 6000, 'carritoResumen1')" 
+                    class="w-full flex justify-between items-center bg-gray-50 border rounded-lg px-4 py-2 hover:bg-pink-50 transition">
+              <span>Pequeña</span>
+              <span class="text-pink-600 font-semibold">$11.000</span>
+            </button>
+
+            <button onclick="abrirCantidadModal('Fruta Mediana', 8000, 'carritoResumen1')" 
+                    class="w-full flex justify-between items-center bg-gray-50 border rounded-lg px-4 py-2 hover:bg-pink-50 transition">
+              <span>Grande</span>
+              <span class="text-pink-600 font-semibold">$13.000</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModal('modal_cholado_sin_helado')" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+      </div>
+    </div>
+
+    
+  </div>
+  <!-- PRODUCTO CHOLADO CON HELADO -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+    <!-- Imagen -->
+    <img src="img/Cholaos/cholao_helado.png" class="rounded-xl w-20 h-20 object-contain" alt="Ensalada de Frutas">
+
+    <!-- Detalles -->
+    <div class="flex-1">
+      <h3 class="font-semibold text-gray-800">Cholao con helado</h3>
+      <p class="text-sm text-gray-600">Disponibles (Pequeño y Grande)</p>
+
+      <p class="text-pink-600 font-bold mt-1">Desde $13.000</p>
+    </div>
+
+    <!-- Botón "+" -->
+    <button onclick="abrirModal('modal_cholado_helado')" 
+      class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+      +
+    </button>
+
+    
+    <!-- Modal con diseño mejorado -->
+    <div id="modal_cholado_helado" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+      <div class="bg-white rounded-2xl shadow-2xl w-full max-w-sm relative overflow-hidden">
+
+        <!-- Botón cerrar -->
+        <button onclick="cerrarModal('modal_cholado_helado')" 
+                class="absolute top-3 right-3 text-gray-400 hover:text-red-500 text-2xl font-bold z-10">
+          ✕
+        </button>
+
+        <!-- Imagen centrada -->
+        <div class="w-full flex justify-center pt-6">
+          <img src="img/Cholaos/cholao_helado.png" alt="Ensalada de Frutas" class="max-h-52 w-auto object-contain">
+        </div>  
+
+        <!-- Contenido -->
+        <div class="p-5 text-center space-y-4">
+          <h3 class="text-lg font-bold uppercase text-gray-900">Cholao</h3>
+          <p class="text-sm text-gray-600 leading-snug">
+            con helado.
+          </p>
+
+          <!-- Opciones de tamaño -->
+          <div class="space-y-2 text-left">
+
+            <!-- Otras opciones -->
+            <button onclick="abrirCantidadModal('Fruta Pequeña', 6000, 'carritoResumen1')" 
+                    class="w-full flex justify-between items-center bg-gray-50 border rounded-lg px-4 py-2 hover:bg-pink-50 transition">
+              <span>Pequeña</span>
+              <span class="text-pink-600 font-semibold">$13.000</span>
+            </button>
+
+            <button onclick="abrirCantidadModal('Fruta Mediana', 8000, 'carritoResumen1')" 
+                    class="w-full flex justify-between items-center bg-gray-50 border rounded-lg px-4 py-2 hover:bg-pink-50 transition">
+              <span>Grande</span>
+              <span class="text-pink-600 font-semibold">$15.000</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModal('modal_cholado_helado')" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+      </div>
+    </div>
+ </div>
+
+
+</div>
+
+
+  <!-- Sección: Copas Especiales -->
+  <div id="malteadas" class="p-4 space-y-4">
+    <h2 class="text-lg font-bold text-pink-600">Super Malteadas</h2>
+
+    <!-- PRODUCTO 01 OBLEA SENCILLA -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      <!-- Imagen -->
+      <img src="img/malteadas/baileys.png" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Baileys</h3>
+        <p class="text-sm text-gray-600"></p>
+        <p class="text-pink-600 font-bold mt-2">$20.900</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_baileys')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_baileys" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_baileys')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/malteadas/baileys.png" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Baileys</h3>
+            <p class="text-xl font-semibold text-pink-600">$20.900/p>
+            <p class="text-sm text-gray-600 leading-snug">
+              ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModal('modal_baileys')" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- CHOCO JUMBO -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      
+      <!-- Etiqueta diagonal -->
+      <!-- Etiqueta NUEVO en verde -->
+      <div class="absolute top-2 right-2 bg-green-500 text-white text-[12px] px-3 py-[2px] font-semibold shadow-sm rounded-lg z-10 transform rotate-12">
+        NUEVO
+      </div>
+
+      <!-- Imagen -->
+
+      <img src="img/malteadas/choco_jumbo.png" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Choco Jumbo</h3>
+        <p class="text-sm text-gray-600"></p>
+        <p class="text-pink-600 font-bold mt-2">$16.900</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_choco_jumbo')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_choco_jumbo" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_choco_jumbo')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/malteadas/choco_jumbo.png" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Choco Jumbo</h3>
+            <p class="text-xl font-semibold text-pink-600">$16.900</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModal('modal_choco_jumbo')" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <h2 class="text-lg font-bold text-pink-600">Tradicionales</h2>
+
+      <!-- TRADICIONALES -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+
+      <!-- Etiqueta diagonal -->
+      <!-- Etiqueta NUEVO en verde -->
+      <div class="absolute top-2 right-2 bg-green-500 text-white text-[12px] px-3 py-[2px] font-semibold shadow-sm rounded-lg z-10 transform rotate-12">
+        NUEVO
+      </div>
+
+      <!-- Imagen -->
+
+      <img src="img/malteadas/choco_jumbo.png" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Tradicionales</h3>
+        <p class="text-sm text-gray-600">Oroe - Vainilla - Chocolate - Nata mani - Arequipe - Capuchino - Fresa - Macadamia</p>
+        <p class="text-pink-600 font-bold mt-2">$12.900</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_tradicionales')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <div id="modal_tradicionales" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 overflow-y-auto">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-md relative overflow-hidden">
+
+          <!-- Cerrar -->
+          <button onclick="cerrarModal('modal_tradicionales')" 
+                  class="absolute top-3 right-3 text-gray-400 hover:text-pink-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <div class="p-6">
+
+            <!-- Imagen -->
+            <div class="w-full flex justify-center mb-4">
+              <img src="img/malteadas/choco_jumbo.png" 
+                  alt="Malteada" 
+                  class="rounded-lg max-h-56 object-contain">
+            </div>
+
+            <!-- Título y precio -->
+            <h2 class="text-xl font-bold text-gray-800 uppercase text-center mb-1">Malteadas Tradicionales</h2>
+            <p class="text-pink-600 text-center font-bold text-lg mb-2">$12.900</p>
+            <p class="text-gray-600 text-sm text-center mb-4">Elige tu sabor favorito de nuestras deliciosas malteadas tradicionales.</p>
+
+            <!-- Acordeón SABORES -->
+            <div class="border border-gray-200 rounded-md">
+              <button onclick="toggleAcordeon('acordeon_sabores')" class="w-full flex justify-between items-center px-4 py-3 text-sm font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200">
+                SABOR 
+                <span class="text-white text-xs bg-orange-500 px-2 py-0.5 rounded ml-2">Obligatorio</span>
+                <svg class="ml-auto w-4 h-4 text-gray-500 transition-transform duration-200 transform" id="flecha_sabores" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              <div id="acordeon_sabores" class="hidden px-4 py-2 space-y-2">
+                <label class="flex justify-between items-center border border-gray-300 rounded-lg px-3 py-2 hover:bg-pink-50 cursor-pointer">
+                  <span class="text-gray-800">Oreo</span>
+                  <input type="radio" name="malteada" value="Oreo" class="accent-pink-500">
+                </label>
+                <label class="flex justify-between items-center border border-gray-300 rounded-lg px-3 py-2 hover:bg-pink-50 cursor-pointer">
+                  <span class="text-gray-800">Vainilla</span>
+                  <input type="radio" name="malteada" value="Vainilla" class="accent-pink-500">
+                </label>
+                <label class="flex justify-between items-center border border-gray-300 rounded-lg px-3 py-2 hover:bg-pink-50 cursor-pointer">
+                  <span class="text-gray-800">Chocolate</span>
+                  <input type="radio" name="malteada" value="Chocolate" class="accent-pink-500">
+                </label>
+                <label class="flex justify-between items-center border border-gray-300 rounded-lg px-3 py-2 hover:bg-pink-50 cursor-pointer">
+                  <span class="text-gray-800">Nata Mani</span>
+                  <input type="radio" name="malteada" value="Chocolate" class="accent-pink-500">
+                </label>
+                <label class="flex justify-between items-center border border-gray-300 rounded-lg px-3 py-2 hover:bg-pink-50 cursor-pointer">
+                  <span class="text-gray-800">Arequipe</span>
+                  <input type="radio" name="malteada" value="Chocolate" class="accent-pink-500">
+                </label>
+                <label class="flex justify-between items-center border border-gray-300 rounded-lg px-3 py-2 hover:bg-pink-50 cursor-pointer">
+                  <span class="text-gray-800">Capuchino</span>
+                  <input type="radio" name="malteada" value="Chocolate" class="accent-pink-500">
+                </label>
+                <label class="flex justify-between items-center border border-gray-300 rounded-lg px-3 py-2 hover:bg-pink-50 cursor-pointer">
+                  <span class="text-gray-800">Fresa</span>
+                  <input type="radio" name="malteada" value="Chocolate" class="accent-pink-500">
+                </label>
+                <label class="flex justify-between items-center border border-gray-300 rounded-lg px-3 py-2 hover:bg-pink-50 cursor-pointer">
+                  <span class="text-gray-800">Macadamia</span>
+                  <input type="radio" name="malteada" value="Chocolate" class="accent-pink-500">
+                </label>
+              </div>
+            </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModal('modal_tradicionales')" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+     
+    <h2 class="text-lg font-bold text-pink-600">Gomitas</h2>
+            <!-- BROWNI CON HELADO -->
+     
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      <!-- Imagen -->
+      <img src="img/ensalada_frutas/ensalada_frutas.png" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Gomitas</h3>
+        <p class="text-sm text-gray-600">Malteada sabor a fresa, decorada con salsa de chocolate, nutella, grageas</p>
+        <p class="text-pink-600 font-bold mt-2">$16.900</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_gomitas')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_gomitas" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_gomitas')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/ensalada_frutas/ensalada_frutas.png" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Gomitas</h3>
+            <p class="text-xl font-semibold text-pink-600">$16.900</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              Malteada sabor a fresa, decorada con salsa de chocolate, nutella, grageas. ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModal('modal_gomitas')" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
 
+ <!-- Sección: BEBIDAS -->
+  <div id="bebidas" class="p-4 space-y-4">
+    <h2 class="text-lg font-bold text-pink-600">Bebidas</h2>
+
+    <!-- PRODUCTO 01 OBLEA SENCILLA -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      <!-- Imagen -->
+      <img src="img/bebidas/agua.jpg" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Botella de agua</h3>
+        <p class="text-sm text-gray-600"></p>
+        <p class="text-pink-600 font-bold mt-2">$3000</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_botella_agua')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_botella_agua" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_botella_agua')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/bebidas/agua.jpg" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Botella de agua</h3>
+            <p class="text-xl font-semibold text-pink-600">$3000</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModal('modal_botella_agua')" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Milo frio -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      
+      <!-- Etiqueta diagonal -->
+      <!-- Etiqueta NUEVO en verde -->
+      <div class="absolute top-2 right-2 bg-green-500 text-white text-[12px] px-3 py-[2px] font-semibold shadow-sm rounded-lg z-10 transform rotate-12">
+        NUEVO
+      </div>
+
+      <!-- Imagen -->
+
+      <img src="img/bebidas/milo_frio.jpg" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Milo frio</h3>
+        <p class="text-sm text-gray-600"></p>
+        <p class="text-pink-600 font-bold mt-2">$8000</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_milo_frio')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_milo_frio" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_milo_frio')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/bebidas/milo_frio.jpg" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Milo Frio</h3>
+            <p class="text-xl font-semibold text-pink-600">$8000</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModal('modal_milo_frio')" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- MILO CALIENTE  -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      <!-- Imagen -->
+      <img src="img/bebidas/milo_caliente.jpg" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Milo caliente</h3>
+        <p class="text-sm text-gray-600">.</p>
+        <p class="text-pink-600 font-bold mt-2">$6000</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_milo_caliente')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_milo_caliente" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_milo_caliente')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/bebidas/milo_caliente.jpg" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Milo caliente</h3>
+            <p class="text-xl font-semibold text-pink-600">$6000</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModal('modal_milo_caliente')" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <!-- AROMATICA -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      <!-- Imagen -->
+      <img src="img/bebidas/aromatica.jpg" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Aromatica</h3>
+        <p class="text-sm text-gray-600">.</p>
+        <p class="text-pink-600 font-bold mt-2">$4000</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_aromatica')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_aromatica" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_aromatica')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/bebidas/aromatica.jpg" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Aromatica</h3>
+            <p class="text-xl font-semibold text-pink-600">$4000</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModal('modal_aromatica')" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <!-- CAFE -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      <!-- Imagen -->
+      <img src="img/bebidas/cafe.jpg" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Cafe</h3>
+        <p class="text-sm text-gray-600">.</p>
+        <p class="text-pink-600 font-bold mt-2">$4000</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_cafe')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_cafe" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_cafe')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/bebidas/cafe.jpg" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Cafe</h3>
+            <p class="text-xl font-semibold text-pink-600">$4000</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModal('modal_cafe')" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <!-- CAFE CON LECHE -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      <!-- Imagen -->
+      <img src="img/bebidas/cafe_leche.jpg" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Cafe con leche</h3>
+        <p class="text-sm text-gray-600">.</p>
+        <p class="text-pink-600 font-bold mt-2">$5000</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_cafe_leche')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_cafe_leche" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_cafe_leche')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/bebidas/cafe_leche.jpg" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Cafe con leche</h3>
+            <p class="text-xl font-semibold text-pink-600">$5000</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModal('modal_cafe_leche')" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <!-- JUGOS EN AGUA -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+      <!-- Imagen -->
+      <img src="img/bebidas/jugos.jpg" class="rounded-xl w-20 h-20 object-contain" alt="Oblea Sencilla">
+
+      <!-- Detalles -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800">Jugos en agua</h3>
+        <p class="text-sm text-gray-600">.</p>
+        <p class="text-pink-600 font-bold mt-2">$7000</p>
+      </div>
+
+      <!-- Botón "+" -->
+      <button onclick="abrirModal('modal_jugos')"
+        class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600 transition">
+        +
+      </button>
+
+      <!-- Modal -->
+      <div id="modal_jugos" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+
+          <!-- Botón cerrar -->
+          <button onclick="cerrarModal('modal_jugos')" 
+                  class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">
+            ✕
+          </button>
+
+          <!-- Imagen -->
+          <div class="w-full flex justify-center pt-6">
+            <img src="img/bebidas/jugos.jpg" 
+                alt="Oblea Sencilla" 
+                class="max-h-60 w-auto object-contain">
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-4 text-center space-y-3">
+            <h3 class="text-base font-bold uppercase text-gray-900">Jugos en agua</h3>
+            <p class="text-xl font-semibold text-pink-600">$7000</p>
+            <p class="text-sm text-gray-600 leading-snug">
+              ¡Pide ya!
+            </p>
+          </div>
+
+          <!-- Botones -->
+          <div class="px-4 pb-5 space-y-2">
+            <button onclick="abrirCantidadModal('Oblea Sencilla', 8900, 'carritoResumen1')" 
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+              ➕ Agregar a mi orden
+            </button>
+            <button onclick="cerrarModal('modal_jugos')" 
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">
+              Continuar con mi orden
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
   </div>
+<!-- Modal de confirmación -->
+<div id="modal_confirmar_granizado" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+  <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative p-6 space-y-4 flex flex-col items-center text-center">
+    
+    <!-- Botón cerrar -->
+    <button onclick="cerrarModal('modal_confirmar_granizado')" 
+            class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">✕</button>
+
+    <!-- Contenido -->
+    <h3 class="text-lg font-bold text-gray-800">Has seleccionado:</h3>
+    <p id="saborSeleccionadoTexto" class="text-pink-600 text-xl font-semibold"></p>
+
+    <div class="w-full space-y-2">
+      <p class="text-sm text-gray-600">¿Deseas adicionar chantilly por $2.000 adicionales?</p>
+      
+      <div class="flex items-center justify-center gap-4">
+        <label class="flex items-center gap-2">
+          <input type="radio" name="agregar_chantilly" value="sí" class="accent-pink-500" checked>
+          <span>Sí</span>
+        </label>
+        <label class="flex items-center gap-2">
+          <input type="radio" name="agregar_chantilly" value="no" class="accent-pink-500">
+          <span>No</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Botón confirmar -->
+    <button onclick="confirmarSaborSeleccionado()" class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+      Aceptar
+    </button>
+  </div>
+</div>
 
 <!-- Carrito modal mejorado y centrado -->
 <div id="carritoVisualizacion"
@@ -1631,6 +2657,73 @@
 <button id="showCarrito" class="fixed bottom-6 left-6 bg-pink-600 text-white p-3 rounded-full shadow-lg hover:bg-pink-700 transition animate-bounce">
   🛒 <span class="font-bold">Ver mis helados agregados (<span id="carrito-count">0</span>)</span>
 </button>
+
+<script>
+function abrirModal(id) {
+  document.getElementById(id).classList.remove('hidden');
+}
+
+function cerrarModal(id) {
+  document.getElementById(id).classList.add('hidden');
+}
+
+function agregarMalteadaSeleccionada() {
+  const seleccion = document.querySelector('input[name="malteada"]:checked');
+  if (seleccion) {
+    alert(`Has agregado: ${seleccion.value}`);
+    cerrarModal('modal_tradicionales');
+  } else {
+    alert('Selecciona un sabor antes de agregar.');
+  }
+}
+
+// Acordeón toggle
+function toggleAcordeon(id) {
+  const contenido = document.getElementById(id);
+  const flecha = document.getElementById('flecha_sabores');
+  const isOpen = !contenido.classList.contains('hidden');
+
+  contenido.classList.toggle('hidden');
+
+  // Rota la flechita
+  flecha.classList.toggle('rotate-180', !isOpen);
+}
+</script>
+
+<script>
+  // Abre el modal y muestra el sabor
+  document.querySelectorAll('input[name="sabor_granizado"]').forEach(input => {
+    input.addEventListener('change', function () {
+      const sabor = this.value;
+      document.getElementById('saborSeleccionadoTexto').textContent = sabor;
+      abrirModal('modal_confirmar_granizado');
+    });
+  });
+
+  // Función genérica para abrir/cerrar
+  function abrirModal(id) {
+    document.getElementById(id).classList.remove('hidden');
+  }
+
+  function cerrarModal(id) {
+    document.getElementById(id).classList.add('hidden');
+  }
+
+  // Lógica al confirmar
+  function confirmarSaborSeleccionado() {
+    const sabor = document.getElementById('saborSeleccionadoTexto').textContent;
+    const agregarChantilly = document.querySelector('input[name="agregar_chantilly"]:checked').value;
+
+    // Aquí podrías guardar en variables globales, actualizar el carrito, etc.
+    console.log("Sabor:", sabor);
+    console.log("Con chantilly:", agregarChantilly);
+
+    cerrarModal('modal_confirmar_granizado');
+    // Podrías también cerrar el modal principal si deseas:
+    // cerrarModal('modal_granizados');
+  }
+</script>
+
 
 <script>
   function toggleDropdown() {
@@ -1819,7 +2912,7 @@ window.onload = actualizarCarrito;
 
 <script>
   function mostrarSeccion(id) {
-    const secciones = ['postres', 'obleas', 'chiquis', 'ensalada_frutas', 'granizados'];
+    const secciones = ['postres', 'obleas', 'chiquis', 'ensalada_frutas', 'granizados', 'malteadas', 'bebidas'];
     secciones.forEach(sec => {
       const section = document.getElementById(sec);
       if (section) section.classList.toggle('hidden', sec !== id);
