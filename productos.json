@@ -1,0 +1,601 @@
+[
+  {
+    "id": "copa_oreo",
+    "nombre": "Copa Oreo",
+    "descripcion": "2 sabores de helado, galletas oreo, crema de la casa y chantilly.",
+    "precio": 12900,
+    "imagen": "img/copas_especiales/copa_oreo.png",
+    "categoria": "postres"
+  },
+    {
+    "id": "copa_hershey",
+    "nombre": "Copa Hershey's",
+    "descripcion": "1 sabor de helado, salsa de chocolate crema de la casa, fresa chocolatina hershey's y abanico.",
+    "precio": 19900,
+    "imagen": "img/copas_especiales/copa_hersgey.png",
+    "categoria": "postres"
+  },
+  {
+    "id": "copa_fantasia",
+    "nombre": "Copa Fantasia",
+    "descripcion": "1 sabor de helado, gelatina, cream de la casa, leche condensada, manzana, y chips de chocolate.",
+    "precio": 13900,
+    "imagen": "img/copas_especiales/copa_fantasia.png",
+    "categoria": "postres"
+  },
+    {
+    "id": "copa_marucu_mango",
+    "nombre": "Maracu Mango con Queso",
+    "descripcion": "Crema de la casa, maracuya, mango, queso cuajada rayado, lecherita.",
+    "precio": 16900,
+    "imagen": "img/copas_especiales/maracu_mango.png",
+    "categoria": "postres"
+  },
+    {
+    "id": "copa_exotica",
+    "nombre": "Copa Exotica",
+    "descripcion": "Banano, tres bolas de helado y toppings..",
+    "precio": 12000,
+    "imagen": "img/copas_especiales/copa_exotica.png",
+    "categoria": "postres"
+  },
+    {
+    "id": "copa_uchuvas",
+    "nombre": "Copa Uchuvas",
+    "descripcion": "2 sabores de helado, salsa de uchuvas, crema de la casa, chantilly y barquilloBanano, tres bolas de helado y toppings..",
+    "precio": 13000,
+    "imagen": "img/copas_especiales/copa_queso.png",
+    "categoria": "postres"
+  },
+
+
+
+
+
+  {
+    "id": "obleas_sencilla",
+    "nombre": "Oblea Sencilla",
+    "descripcion": "Queso y arequipe..",
+    "precio": 8900,
+    "imagen": "img/obleas_especiales/oblea_sencilla.png",
+    "categoria": "obleas"
+  },
+  {
+    "id": "obleas_helado",
+    "nombre": "Oblea con Helado",
+    "descripcion": "1 sabor de helado, fresa, queso, arequipe y salsa de chocolate.",
+    "precio": 12900,
+    "imagen": "img/obleas_especiales/oblea_con_helado.png",
+    "categoria": "obleas"
+  },
+    {
+    "id": "wafle_bono",
+    "nombre": "Waflebono con Helado",
+    "descripcion": "Waflebono con salsa de chocolate, fresa, banano, chantilly y 1 porcion de helado.",
+    "precio": 17900,
+    "imagen": "img/obleas_especiales/wafle_bono.png",
+    "categoria": "obleas"
+  },
+    {
+    "id": "brevas",
+    "nombre": "Brevas",
+    "descripcion": "Brevas, queso, arequipey chantilly.",
+    "precio": 15000,
+    "imagen": "img/obleas_especiales/brevas.png",
+    "categoria": "obleas"
+  },
+
+    {
+    "id": "brevas",
+    "nombre": "Brevas",
+    "descripcion": "Brevas, queso, arequipey chantilly.",
+    "precio": 15000,
+    "imagen": "img/obleas_especiales/brevas.png",
+    "categoria": "obleas"
+  },
+
+
+
+
+  {
+    "id": "raton",
+    "nombre": "Ratón",
+    "descripcion": "",
+    "precio": 9000,
+    "imagen": "img/chikis/raton.png",
+    "categoria": "chiquis"
+  },
+    {
+    "id": "gatico",
+    "nombre": "Gatico",
+    "descripcion": "",
+    "precio": 9000,
+    "imagen": "img/chikis/gatico.png",
+    "categoria": "chiquis"
+  },
+    {
+    "id": "diversion",
+    "nombre": "Diversión",
+    "descripcion": "",
+    "precio": 10000,
+    "imagen": "img/chikis/diversion.png",
+    "categoria": "chiquis"
+  },
+
+
+
+
+  {
+  "id": "ensalada",
+  "categoria": "ensalada_frutas",
+  "nombre": "Ensalada de Frutas",
+  "descripcion": "Varias presentaciones disponibles (De la casa, Mediana, Pequeña y Buffet)",
+  "imagen": "img/ensalada_frutas/ensalada_frutas.png",
+  "opciones": [
+    {
+      "nombre": "🥇 De la Casa",
+      "descripcion": "2 porciones de helado, papaya, piña, banano, mango, fresa, durazno, kiwi, queso, crema de la casa, chantilly y barquillo",
+      "precio": 18900
+    },
+    {
+      "nombre": "Fruta Pequeña",
+      "descripcion": "1 porción de helado",
+      "precio": 16900
+    },
+    {
+      "nombre": "Fruta Mediana",
+      "descripcion": "Pequeña",
+      "precio": 14900
+    },
+    {
+      "nombre": "Fruta Buffet",
+      "descripcion": "Buffet",
+      "precio": 19900
+    }
+    ]
+    },
+
+    {
+    "id": "Banana_split",
+    "nombre": "Banana Split",
+    "descripcion": "3 sabores de helado, banano, queso, chantilly, salsa de chocolate, barquillo y cereza",
+    "precio": 14900,
+    "imagen": "img/ensalada_frutas/banana_split.png",
+    "categoria": "ensalada_frutas"
+  },
+    {
+    "id": "parfait",
+    "nombre": "Parfait",
+    "descripcion": "Yogur griego, granola, fresas y mango",
+    "precio": 12900,
+    "imagen": "img/ensalada_frutas/parfait.png",
+    "categoria": "ensalada_frutas"
+  },
+    {
+    "id": "Fondue",
+    "nombre": "Fondue",
+    "descripcion": "Chocolate derretido, masmelos, fresas, banano, durazno, 2 porciones de helado",
+    "precio": 24900,
+    "imagen": "img/ensalada_frutas/fondue.png",
+    "categoria": "ensalada_frutas"
+  },
+    {
+    "id": "picada_frutas",
+    "nombre": "Picada de Frutas",
+    "descripcion": "Manzana, papaya, banano, mango, piña, fresa",
+    "precio": 11900,
+    "imagen": "img/ensalada_frutas/ensalada_frutas.png",
+    "categoria": "ensalada_frutas"
+  },
+    {
+    "id": "fres_bano",
+    "nombre": "FresBano con Queso",
+    "descripcion": "Crema de la casa, fresa, banano, queso cuajada rayado, salsa arequipe",
+    "precio": 16900,
+    "imagen": "img/ensalada_frutas/Fresbano.png",
+    "categoria": "ensalada_frutas"
+  },
+    {
+    "id": "ensalada_light",
+    "nombre": "Ensalada LIGHT",
+    "descripcion": "Yogur light, banano, papaya, mango, manzana verde, granola, kiwi y fresas",
+    "precio": 15900,
+    "imagen": "img/ensalada_frutas/granola.png",
+    "categoria": "ensalada_frutas"
+  }
+  ,
+    {
+    "id": "brownie_helado",
+    "nombre": "Brownie con helado",
+    "descripcion": "1 sabor de helado, brownie, fresa y chantilly",
+    "precio": 11900,
+    "imagen": "img/ensalada_frutas/brownie_helado.png",
+    "categoria": "ensalada_frutas"
+  }
+
+
+
+
+  ,
+    {
+    "id": "Granizados",
+    "nombre": "Granizados",
+    "descripcion": "Si deseas con chantilly dejalo en las observaciones adicionales por un valor adicional de $2.000. ¡Pide ya!",
+    "precio": 10000,
+    "imagen": "img/granizados/granizado2.png",
+    "categoria": "granizados",
+    "opciones": [
+    {
+      "nombre": "Maracumango",
+      "descripcion": "",
+      "precio": 10000
+    },
+    {
+      "nombre": "Mango biche",
+      "descripcion": "",
+      "precio": 10000
+    },
+    {
+      "nombre": "Oreo",
+      "descripcion": "",
+      "precio": 10000
+    },
+    {
+      "nombre": "Limón",
+      "descripcion": "",
+      "precio": 10000
+    },
+    {
+      "nombre": "Maracuyá",
+      "descripcion": "",
+      "precio": 10000
+    },
+    {
+      "nombre": "Fresa",
+      "descripcion": "",
+      "precio": 10000
+    },
+    {
+      "nombre": "Mango",
+      "descripcion": "",
+      "precio": 10000
+    },
+    {
+      "nombre": "Guanábana",
+      "descripcion": "",
+      "precio": 10000
+    }
+    
+    ]
+    }
+  
+  ,
+    {
+    "id": "limonadas",
+    "nombre": "Limonadas",
+    "descripcion": "Varios sabores disponibles, ¡Pide ya!",
+    "precio": 10000,
+    "imagen": "img/Limonadas/limonada.png",
+    "categoria": "granizados",
+    "opciones": [
+    {
+      "nombre": "Coco",
+      "descripcion": "",
+      "precio": 10000
+    },
+    {
+      "nombre": "Hierbabuena",
+      "descripcion": "",
+      "precio": 10000
+    },
+    {
+      "nombre": "Cherry",
+      "descripcion": "",
+      "precio": 10000
+    },
+    {
+      "nombre": "Frutos rojos",
+      "descripcion": "",
+      "precio": 10000
+    },
+    {
+      "nombre": "Maracuyá",
+      "descripcion": "",
+      "precio": 10000
+    }
+    
+    ]
+    },
+
+    {
+    "id": "cholao",
+    "nombre": "Cholao sin helado",
+    "descripcion": "Disponible en tamaño grande y pequeño",
+    "precio": 11000,
+    "imagen": "img/Cholaos/cholao_sin_helado.png",
+    "categoria": "cholaos",
+    "opciones": [
+    {
+      "nombre": "Pequeño",
+      "descripcion": "Sin helado",
+      "precio": 11000
+    },
+    {
+      "nombre": "Grande",
+      "descripcion": "Sin helado",
+      "precio": 13000
+    }
+      ]
+    },
+    
+    {
+    "id": "cholao2",
+    "nombre": "Cholao con helado",
+    "descripcion": "Disponible en tamaño grande y pequeño",
+    "precio": 13000,
+    "imagen": "img/Cholaos/cholao_helado.png",
+    "categoria": "cholaos",
+    "opciones": [
+    {
+      "nombre": "Pequeño",
+      "descripcion": "Con helado",
+      "precio": 13000
+    },
+    {
+      "nombre": "Grande",
+      "descripcion": "Con helado",
+      "precio": 15000
+    }
+
+    ]
+    }
+
+      ,
+    {
+    "id": "Baileys",
+    "nombre": "Baileys",
+    "descripcion": "Pidela ya!!",
+    "precio": 20900,
+    "imagen": "img/malteadas/baileys.png",
+    "categoria": "malteadas"
+    
+    },
+    {
+    "id": "choco_jumbo",
+    "nombre": "Choco Jumbo",
+    "descripcion": "Pidela ya!!",
+    "precio": 16900,
+    "imagen": "img/malteadas/choco_jumbo.png",
+    "categoria": "malteadas"
+    
+    }
+  ,
+    {
+    "id": "tradicionales",
+    "nombre": "Tradicionales",
+    "descripcion": "Varios sabores disponibles, ¡Pide ya!",
+    "precio": 12900,
+    "imagen": "img/Limonadas/limonada.png",
+    "categoria": "malteadas",
+    "opciones": [
+    {
+      "nombre": "Oreo",
+      "descripcion": "",
+      "precio": 12900
+    },
+    {
+      "nombre": "Vainilla",
+      "descripcion": "",
+      "precio": 12900
+    },
+    {
+      "nombre": "Chocolate",
+      "descripcion": "",
+      "precio": 12900
+    },
+    {
+      "nombre": "Nata mani",
+      "descripcion": "",
+      "precio": 12900
+    },
+    {
+      "nombre": "Arequipe",
+      "descripcion": "",
+      "precio": 12900
+    }
+    ,
+    {
+      "nombre": "Capuchino",
+      "descripcion": "",
+      "precio": 12900
+    }
+    ,
+    {
+      "nombre": "Fresa",
+      "descripcion": "",
+      "precio": 12900
+    },
+    {
+      "nombre": "Macadamia",
+      "descripcion": "",
+      "precio": 12900
+    }
+    
+    ]
+    }
+  ,
+    {
+    "id": "gomitas",
+    "nombre": "Gomitas",
+    "descripcion": "Varios sabores disponibles, ¡Pide ya!",
+    "precio": 16900,
+    "imagen": "img/Limonadas/limonada.png",
+    "categoria": "malteadas",
+    "opciones": [
+    {
+      "nombre": "Malteada sabor a fresa",
+      "descripcion": "",
+      "precio": 16900
+    },
+    {
+      "nombre": "Decorada con salsa de chocolate",
+      "descripcion": "",
+      "precio": 16900
+    },
+    {
+      "nombre": "Nutella",
+      "descripcion": "",
+      "precio": 16900
+    },
+    {
+      "nombre": "Grajeas",
+      "descripcion": "",
+      "precio": 16900
+    }
+    ]
+    },
+
+
+
+    {
+    "id": "agua",
+    "nombre": "Botella de agua",
+    "descripcion": "Pidela ya!!",
+    "precio": 3000,
+    "imagen": "img/bebidas/agua.jpg",
+    "categoria": "bebidas"
+    },
+    {
+    "id": "milo_frio",
+    "nombre": "Milo frio",
+    "descripcion": "Pidela ya!!",
+    "precio": 8000,
+    "imagen": "img/bebidas/milo_frio.png",
+    "categoria": "bebidas"
+    },
+    {
+    "id": "milo_caliente",
+    "nombre": "Milo caliente",
+    "descripcion": "Pidela ya!!",
+    "precio": 6000,
+    "imagen": "img/bebidas/milo_caliente.png",
+    "categoria": "bebidas"
+    },
+    {
+    "id": "aromatica",
+    "nombre": "Aromatica",
+    "descripcion": "Pidela ya!!",
+    "precio": 4000,
+    "imagen": "img/bebidas/aromatica.jpg",
+    "categoria": "bebidas"
+    }
+    ,
+    {
+    "id": "Cafe",
+    "nombre": "Cafe",
+    "descripcion": "Pidela ya!!",
+    "precio": 4000,
+    "imagen": "img/bebidas/cafe.jpg",
+    "categoria": "bebidas"
+    }
+    ,
+    {
+    "id": "Cafe_leche",
+    "nombre": "Cafe con leche",
+    "descripcion": "Pidela ya!!",
+    "precio": 4000,
+    "imagen": "img/bebidas/cafe_leche.png",
+    "categoria": "bebidas"
+    },
+    {
+    "id": "jugos_agua",
+    "nombre": "Jugos en agua",
+    "descripcion": "Recuerda dejar en la observacion el sabor a degustar, Pidela ya!!",
+    "precio": 4000,
+    "imagen": "img/bebidas/jugos.png",
+    "categoria": "bebidas"
+    },
+
+
+
+     {
+    "id": "fresas",
+    "nombre": "Fresas con crema",
+    "descripcion": "Disponible en Vaso o Cono ¡Pide ya!",
+    "precio": 16900,
+    "imagen": "img/Fresas_crema/fresas.png",
+    "categoria": "fresas",
+    "opciones": [
+    {
+      "nombre": "Vaso + Arequipe",
+      "sabores": ["Oreo", "Brownie", "Chips de colores", "Chips de chocolate"],
+      "descripcion": "",
+      "precio": 16900
+    },
+    {
+      "nombre": "Vaso + Nutella",
+      "sabores": ["Oreo", "Brownie", "Chips de colores", "Chips de chocolate"],
+      "descripcion": "",
+      "precio": 16900
+    },
+    {
+      "nombre": "Cono + Arequipe",
+      "sabores": ["Oreo", "Brownie", "Chips de colores", "Chips de chocolate"],
+      "descripcion": "",
+      "precio": 16900
+    },
+    {
+      "nombre": "Cono + Nutella",
+      "sabores": ["Oreo", "Brownie", "Chips de colores", "Chips de chocolate"],
+      "descripcion": "",
+      "precio": 16900
+    }
+    ]
+    },
+
+    {
+    "id": "cono_loco",
+    "nombre": "Cono LOCO",
+    "descripcion": "4 Sabores de helado Toppings, fresas, gomitas... ¡Pide ya!",
+    "precio": 16900,
+    "imagen": "img/Fresas_crema/cono_loco.png",
+    "categoria": "fresas"
+    
+    },
+
+
+    
+    {
+    "id": "canasta_helado",
+    "nombre": "Canasta de Helado",
+    "descripcion": "3 sabores de helado, salsa, chantilly y barquillo ¡Pide ya!",
+    "precio": 11900,
+    "imagen": "img/Fresas_crema/canasta_helado.png",
+    "categoria": "fresas"
+
+    },
+    {
+    "id": "salpicon",
+    "nombre": "Salpicòn",
+    "descripcion": "Disponible con Helado y sin Helado ¡Pide ya!",
+    "precio": 12900,
+    "imagen": "img/Fresas_crema/salpicon.png",
+    "categoria": "fresas",
+    "opciones": [
+    {
+      "nombre": "Sin helado",
+      "descripcion": "",
+      "precio": 12900
+    }, 
+    {
+      "nombre": "Con helado o con queso",
+      "descripcion": "",
+      "precio": 15900
+    } 
+    ]
+
+    }
+    
+    
+
+]

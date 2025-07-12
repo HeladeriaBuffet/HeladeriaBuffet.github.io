@@ -1,51 +1,544 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Página en mantenimiento</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú Heladería</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-black pt-[120px]">
+
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #f9f9f9, #e0e0e0);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      color: #333;
-    }
-    .container {
-      text-align: center;
-      max-width: 600px;
-      padding: 2rem;
-      background-color: white;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-    h1 {
-      font-size: 2.5rem;
-      color: #444;
-    }
-    p {
-      font-size: 1.2rem;
-      margin-top: 1rem;
-      color: #666;
-    }
-    .emoji {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+    #alerta {
+      transition: opacity 0.5s ease-in-out;
     }
   </style>
-</head>
-<body>
-  <div class="container">
-    <div class="emoji">🔧🚧</div>
-    <h1>¡Estamos trabajando para ti!</h1>
-    <p>Actualmente estamos realizando actualizando nuestro sitio web.<br/>
-    Por favor, vuelve pronto para descubrir todas las novedades.</p>
+
+  <!-- Barra Promocional Fija -->
+  <div class="fixed top-0 left-0 w-full bg-teal-500 text-white text-center font-bold py-2 z-50">
+    <span id="promoText">DOMICILIOS EN PEREIRA Y DOSQUEBRADAS</span>
   </div>
+
+  <!-- Encabezado -->
+  <div class="fixed top-10 left-0 w-full bg-white text-black shadow-md z-40">
+    <div class="max-w-screen-lg mx-auto flex items-center p-4 gap-4">
+      <img src="img/LOGO-removebg-preview (1).png" alt="Logo" class="w-24 h-34 object-contain">
+      <div class="flex-1">
+        <h1 class="text-xl font-bold">HELADERÍA BUFFET</h1>
+        <p class="text-sm text-gray-800">🔍 Cl 21 #4AC0B0, Dosquebradas, Risaralda</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Botones de Categoría Fijos -->
+  <div class="sticky top-[150px] bg-white z-30 overflow-x-auto whitespace-nowrap px-4 py-2 shadow-sm">
+    
+    <div class="inline-flex gap-2">
+      <h2 class="text-center font-bold text-pink-600 text-lg mb-2">📋 MENÚ</h2>
+
+      <button onclick="mostrarSeccion('postres')" id="btn-postres" class="px-4 py-2 rounded-full text-sm font-medium bg-pink-500 text-white shadow hover:bg-pink-600">Copas Especiales</button>
+      <button onclick="mostrarSeccion('fresas')" id="btn-fresas" class="px-4 py-2 rounded-full text-sm font-medium bg-gray-200 text-gray-700 hover:bg-pink-500 hover:text-white">Fresas con Crema</button>
+      <button onclick="mostrarSeccion('obleas')" id="btn-obleas" class="px-4 py-2 rounded-full text-sm font-medium bg-gray-200 text-gray-700 hover:bg-pink-500 hover:text-white">Oblea y Wafle</button>
+      <button onclick="mostrarSeccion('chiquis')" id="btn-chiquis" class="px-4 py-2 rounded-full text-sm font-medium bg-gray-200 text-gray-700 hover:bg-pink-500 hover:text-white">Para los Chiquis</button>
+      <button onclick="mostrarSeccion('ensalada_frutas')" id="btn-ensalada_frutas" class="px-4 py-2 rounded-full text-sm font-medium bg-gray-200 text-gray-700 hover:bg-pink-500 hover:text-white">Ensaladas de Frutas</button>
+      <button onclick="mostrarSeccion('granizados')" id="btn-granizados" class="px-4 py-2 rounded-full text-sm font-medium bg-gray-200 text-gray-700 hover:bg-pink-500 hover:text-white">Granizados y Limonadas</button>
+      <button onclick="mostrarSeccion('granizados')" id="btn-granizados" class="px-4 py-2 rounded-full text-sm font-medium bg-gray-200 text-gray-700 hover:bg-pink-500 hover:text-white">Cholaos</button>
+      <button onclick="mostrarSeccion('cholaos')" id="btn-cholaos" class="px-4 py-2 rounded-full text-sm font-medium bg-gray-200 text-gray-700 hover:bg-pink-500 hover:text-white">Super Malteadas</button>
+      <button onclick="mostrarSeccion('bebidas')" id="btn-bebidas" class="px-4 py-2 rounded-full text-sm font-medium bg-gray-200 text-gray-700 hover:bg-pink-500 hover:text-white">Bebidas</button>
+    </div>
+  </div>
+
+  <div id="alerta" class="fixed top-20 left-1/2 transform -translate-x-1/2 px-6 py-4 text-white text-lg font-semibold rounded-xl shadow-xl z-[9999] hidden"></div>
+
+  <!-- Modal para seleccionar cantidad -->
+  <div id="cantidadModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[1000] hidden">
+    <div class="bg-white p-6 rounded-lg max-w-sm w-full">
+      <h3 class="text-lg font-bold mb-4 text-center">¿Cuántas unidades deseas?</h3>
+
+      <input type="number" id="cantidadSeleccionada" class="w-full border rounded px-3 py-2 mb-3" value="1" min="1">
+
+      <textarea id="observaciones" placeholder="Observaciones (opcional)"
+                class="w-full border rounded px-3 py-2 mb-4 text-sm"></textarea>
+
+      <div class="flex gap-2">
+        <button onclick="confirmarCantidad()" class="flex-1 bg-pink-500 hover:bg-pink-600 text-white py-2 rounded">
+          ➕ Agregar
+        </button>
+        <button onclick="cerrarCantidadModal()" class="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 rounded">
+          Cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenedor donde se cargan productos -->
+  <div id="contenedor-productos" class="mt-4"></div>
+
+    <!-- Modal visual del carrito -->
+  <div id="carritoVisualizacion" class="fixed top-20 right-4 w-[300px] bg-white shadow-xl rounded-xl border z-[999] p-4 hidden">
+    <h3 class="text-center font-bold text-pink-600 text-lg mb-2">🛒 Mi Pedido</h3>
+    <div id="resumenCarrito" class="space-y-2 text-sm max-h-[300px] overflow-y-auto">
+      <!-- Aquí se mostrará el resumen -->
+    </div>
+    <div class="mt-4 flex flex-col gap-2">
+      <button onclick="ordenarPorWhatsapp()" class="bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg font-semibold">📲 Finalizar y Ordenar por WhatsApp</button>
+      <button onclick="cerrarVisualCarrito()" class="bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 rounded-lg font-semibold">➕ Agregar más ...</button>
+    </div>
+  </div>
+
+  <button onclick="toggleModalPedido(true)" class="fixed bottom-6 left-6 bg-pink-600 hover:bg-pink-700 text-white px-5 py-3 rounded-full shadow-xl z-50 font-semibold">
+    🛒 Ver mis productos agregados <span id="contadorCarrito">(0)</span>
+  </button>
+
+
+
+  <!-- Script para mensaje promocional -->
+  <script>
+    const mensajes = [
+      "DOMICILIOS EN PEREIRA Y DOSQUEBRADAS",
+      "TRANSFERENCIA BANCARIA DISPONIBLE"
+    ];
+    let index = 0;
+    setInterval(() => {
+      document.getElementById("promoText").innerText = mensajes[index];
+      index = (index + 1) % mensajes.length;
+    }, 3000);
+  </script>
+
+
+  <!-- Modal de Número de Mesa -->
+  <div id="modalMesa" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999] hidden">
+    <div class="bg-white rounded-xl shadow-xl p-6 max-w-sm w-full">
+      <h3 class="text-lg font-bold text-center text-pink-600 mb-4">📋 Ingresa tu número de mesa</h3>
+      <input type="number" id="inputNumeroMesa" min="1" placeholder="Ej: 5"
+            class="w-full border border-gray-300 rounded-lg px-4 py-2 mb-4 text-center text-lg" />
+
+      <div class="flex gap-2">
+        <button onclick="confirmarMesa()" class="flex-1 bg-green-500 hover:bg-green-600 text-white font-semibold py-2 rounded-lg">
+          ✅ Confirmar
+        </button>
+        <button onclick="cerrarModalMesa()" class="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 rounded-lg">
+          Cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Script mostrar secciones -->
+  <script>
+    function mostrarSeccion(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        const offsetTop = el.getBoundingClientRect().top + window.scrollY;
+        const headerOffset = 190;
+
+        window.scrollTo({
+          top: offsetTop - headerOffset,
+          behavior: 'smooth'
+        });
+      }
+
+      // Resaltar botón activo
+      const botones = document.querySelectorAll('.inline-flex button');
+      botones.forEach(b => {
+        b.classList.remove('bg-pink-500', 'text-white');
+        b.classList.add('bg-gray-200', 'text-gray-700');
+      });
+
+      const botonActivo = document.getElementById(`btn-${id}`);
+      if (botonActivo) {
+        botonActivo.classList.add('bg-pink-500', 'text-white');
+        botonActivo.classList.remove('bg-gray-200', 'text-gray-700');
+      }
+    }
+
+
+  </script>
+
+  <!-- Script para cargar productos -->
+  <script>
+    const categorias = {
+      postres: "Copas Especiales",
+      fresas: "Fresas con Crema",
+      obleas: "Oblea y Wafle",
+      chiquis: "Para los Chiquis",
+      ensalada_frutas: "Ensaladas de Frutas",
+      granizados: "Granizados y Limonadas",
+      cholaos: "Cholaos",
+      malteadas: "Super Malteadas",
+      bebidas: "Bebidas"
+    };
+
+    async function cargarProductos() {
+      const res = await fetch('productos.json');
+      const productos = await res.json();
+
+      const contenedor = document.getElementById('contenedor-productos');
+      contenedor.innerHTML = '';
+
+      for (const [idCategoria, nombreCategoria] of Object.entries(categorias)) {
+        const productosFiltrados = productos.filter(p => p.categoria === idCategoria);
+        if (productosFiltrados.length === 0) continue;
+
+        const seccionHTML = `
+          <div id="${idCategoria}" class="p-4 space-y-4 scroll-mt-[360px]">
+            <h2 class="text-lg font-bold text-pink-600 mb-4">${nombreCategoria}</h2>
+            <div id="seccion_${idCategoria}" class="space-y-4"></div>
+          </div>`;
+        contenedor.insertAdjacentHTML('beforeend', seccionHTML);
+
+        const seccion = document.getElementById(`seccion_${idCategoria}`);
+
+        productosFiltrados.forEach(prod => {
+          const modalId = `modal_${prod.id}`;
+          const safeNombre = prod.nombre.replace(/'/g, "\\'");
+
+          // Si el producto tiene múltiples opciones
+          if (prod.opciones && Array.isArray(prod.opciones)) {
+            const opcionesHTML = `
+            <div class="space-y-2 text-left">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Elige una opción:</label>
+              <div class="relative">
+                <button onclick="toggleDropdown('${prod.id}')" class="w-full border border-gray-300 rounded-lg p-2 bg-white text-sm text-left flex justify-between items-center">
+                  <span id="label_opcion_${prod.id}">${prod.opciones[0].nombre} - $${prod.opciones[0].precio.toLocaleString()}</span>
+                  <svg class="w-4 h-4 ml-2 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <ul id="dropdown_${prod.id}" class="absolute z-50 mt-1 w-full bg-white border rounded-lg shadow-lg max-h-48 overflow-y-auto hidden">
+                  ${prod.opciones.map((opt, i) => `
+                    <li>
+                      <button
+                        onclick="seleccionarOpcion('${prod.id}', '${opt.nombre}', ${opt.precio}, ${opt.sabores ? JSON.stringify(opt.sabores).replace(/"/g, '&quot;') : null})"
+                        class="w-full text-left px-4 py-2 text-sm hover:bg-pink-100">
+                        ${opt.nombre} - $${opt.precio.toLocaleString()}
+                      </button>
+                    </li>
+                  `).join('')}
+                </ul>
+              </div>
+
+              <!-- Sub-opciones (sabores) -->
+              <div id="sabores_wrapper_${prod.id}" class="hidden space-y-1">
+                <label class="text-sm text-gray-700">Elige un sabor:</label>
+                <div class="relative">
+                  <button onclick="toggleDropdownSabor('${prod.id}')" class="w-full border border-gray-300 rounded-lg p-2 bg-white text-sm text-left flex justify-between items-center">
+                    <span id="label_sabor_${prod.id}">Selecciona un sabor</span>
+                    <svg class="w-4 h-4 ml-2 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <ul id="dropdown_sabor_${prod.id}" class="absolute z-50 mt-1 w-full bg-white border rounded-lg shadow-lg max-h-48 overflow-y-auto hidden">
+                  </ul>
+                </div>
+              </div>
+
+              <button onclick="agregarSeleccion('${prod.nombre}', '${prod.id}')" class="w-full mt-2 bg-pink-500 hover:bg-pink-600 text-white py-2 rounded-lg font-semibold">
+                ➕ Agregar
+              </button>
+            </div>
+          `;
+
+            const prodHTML = `
+              <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+                <img src="${prod.imagen}" class="rounded-xl w-20 h-20 object-contain" alt="${prod.nombre}">
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-800">${prod.nombre}</h3>
+                  <p class="text-sm text-gray-600">${prod.descripcion}</p>
+                  <p class="text-pink-600 font-bold mt-2">Desde $${Math.min(...prod.opciones.map(o => o.precio)).toLocaleString()}</p>
+                </div>
+                <button onclick="abrirModal('${modalId}')" class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600">+</button>
+
+                <div id="${modalId}" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+                  <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+                    <button onclick="cerrarModal('${modalId}')" class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">&times;</button>
+                    <div class="w-full flex justify-center pt-6">
+                      <img src="${prod.imagen}" alt="${prod.nombre}" class="max-h-60 w-auto object-contain">
+                    </div>
+                    <div class="p-4 text-center space-y-3">
+                      <h3 class="text-base font-bold uppercase text-gray-900">${prod.nombre}</h3>
+                      <p class="text-sm text-gray-600 leading-snug">${prod.descripcion}</p>
+                      <div class="space-y-2 text-left">${opcionesHTML}</div>
+                    </div>
+                    <div class="px-4 pb-5">
+                      <button onclick="cerrarModal('${modalId}')" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg font-medium">Ver más productos</button>
+                    </div>
+                  </div>
+                </div>
+              </div>`;
+
+            seccion.insertAdjacentHTML('beforeend', prodHTML);
+          } else {
+            // Producto simple
+            const prodHTML = `
+              <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-4 relative min-h-[130px]">
+                <img src="${prod.imagen}" class="rounded-xl w-20 h-20 object-contain" alt="${prod.nombre}">
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-800">${prod.nombre}</h3>
+                  <p class="text-sm text-gray-600">${prod.descripcion}</p>
+                  <p class="text-pink-600 font-bold mt-2">$${prod.precio.toLocaleString()}</p>
+                </div>
+                <button onclick="abrirModal('${modalId}')" class="absolute right-3 bottom-3 bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold hover:bg-pink-600">+</button>
+
+                <div id="${modalId}" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 hidden">
+                  <div class="bg-white rounded-xl shadow-xl w-full max-w-sm relative overflow-hidden">
+                    <button onclick="cerrarModal('${modalId}')" class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold z-10">&times;</button>
+                    <div class="w-full flex justify-center pt-6">
+                      <img src="${prod.imagen}" alt="${prod.nombre}" class="max-h-60 w-auto object-contain">
+                    </div>
+                    <div class="p-4 text-center space-y-3">
+                      <h3 class="text-base font-bold uppercase text-gray-900">${prod.nombre}</h3>
+                      <p class="text-xl font-semibold text-pink-600">$${prod.precio.toLocaleString()}</p>
+                      <p class="text-sm text-gray-600 leading-snug">${prod.descripcion}</p>
+                    </div>
+                    <div class="px-4 pb-5 space-y-2">
+                      <button onclick="abrirCantidadModal('${safeNombre}', ${prod.precio}, 'resumen_${prod.id}')"
+                              class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg">
+                        ➕ Agregar a mi orden ...
+                      </button>
+                      <button onclick="cerrarModal('${modalId}')" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg">Ver más productos</button>
+                    </div>
+                  </div>
+                </div>
+              </div>`;
+
+            seccion.insertAdjacentHTML('beforeend', prodHTML);
+          }
+        });
+      }
+    }
+
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    let productoTemporal = {}; // para almacenar producto activo temporalmente
+
+    function abrirCantidadModal(nombre, precio, resumenId) {
+      productoTemporal = { nombre, precio, resumenId };
+      document.getElementById('cantidadSeleccionada').value = 1;
+      document.getElementById('observaciones').value = '';
+      document.getElementById('cantidadModal').classList.remove('hidden');
+    }
+
+    function cerrarCantidadModal() {
+      document.getElementById('cantidadModal').classList.add('hidden');
+    }
+
+    function actualizarCarrito() {
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+      const resumen = document.getElementById('resumenCarrito');
+      const contador = document.getElementById('contadorCarrito');
+      if (!resumen) return;
+
+      resumen.innerHTML = '';
+
+      carrito.forEach(p => {
+        resumen.innerHTML += `
+          <div class="border-b pb-1">
+            <strong>${p.cantidad} x ${p.nombre}</strong><br>
+            <span class="text-xs text-gray-600">${p.observaciones || ''}</span><br>
+            <span class="text-sm font-semibold text-pink-600">$${(p.precio * p.cantidad).toLocaleString()}</span>
+          </div>`;
+      });
+
+      // Puedes actualizar un contador también si lo deseas
+      if (contador) {
+        const totalUnidades = carrito.reduce((sum, p) => sum + p.cantidad, 0);
+        contador.innerText = `(${totalUnidades})`;
+      }
+
+    }
+
+    function toggleModalPedido(mostrar = true, id = 'carritoVisualizacion') {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      modal.classList.toggle('hidden', !mostrar);
+    }
+    function cerrarVisualCarrito() {
+      toggleModalPedido(false, 'carritoVisualizacion');
+    }
+
+    function confirmarCantidad() {
+      const cantidad = parseInt(document.getElementById('cantidadSeleccionada').value);
+      const observacion = document.getElementById('observaciones').value.trim();
+
+      if (cantidad > 0) {
+        const { nombre, precio, resumenId } = productoTemporal;
+
+        const existente = carrito.find(p => p.nombre === nombre);
+        if (existente) {
+          existente.cantidad += cantidad;
+          if (observacion) {
+            existente.observaciones = (existente.observaciones || '') + ' | ' + observacion;
+          }
+        } else {
+          carrito.push({ nombre, precio, cantidad, observaciones: observacion });
+        }
+
+        actualizarCarrito();
+        cerrarCantidadModal();
+        
+        // Mostrar alerta visual
+        mostrarAlerta(`✅ ${cantidad} x ${nombre} agregado`, 'bg-green-500');
+        
+        // Mostrar carrito automáticamente
+        toggleModalPedido(true, 'carritoVisualizacion');
+      }
+    }
+
+    const seleccionadas = {};
+
+    function toggleDropdown(id) {
+      const dropdown = document.getElementById(`dropdown_${id}`);
+      dropdown.classList.toggle('hidden');
+    }
+
+
+    function seleccionarOpcion(idProd, nombre, precio, sabores) {
+      document.getElementById(`label_opcion_${idProd}`).textContent = `${nombre} - $${precio.toLocaleString()}`;
+      document.getElementById(`dropdown_${idProd}`).classList.add('hidden');
+
+      seleccionadas[idProd] = { nombre, precio, sabor: '' };
+
+      const wrapper = document.getElementById(`sabores_wrapper_${idProd}`);
+      const select = document.getElementById(`select_sabor_${idProd}`);
+
+      if (sabores) {
+        wrapper.classList.remove('hidden');
+
+        const dropdown = document.getElementById(`dropdown_sabor_${idProd}`);
+        dropdown.innerHTML = sabores.map(s =>
+          `<li>
+            <button onclick="seleccionarSabor('${idProd}', '${s}')" class="w-full text-left px-4 py-2 text-sm hover:bg-pink-100">
+              ${s}
+            </button>
+          </li>`
+        ).join('');
+
+        // valor inicial
+        document.getElementById(`label_sabor_${idProd}`).textContent = sabores[0];
+        seleccionadas[idProd].sabor = sabores[0];
+      } else {
+        wrapper.classList.add('hidden');
+      }
+
+    }
+
+    function toggleDropdownSabor(idProd) {
+      document.getElementById(`dropdown_sabor_${idProd}`).classList.toggle('hidden');
+    }
+
+    function seleccionarSabor(idProd, sabor) {
+      document.getElementById(`label_sabor_${idProd}`).textContent = sabor;
+      document.getElementById(`dropdown_sabor_${idProd}`).classList.add('hidden');
+      if (seleccionadas[idProd]) {
+        seleccionadas[idProd].sabor = sabor;
+      }
+    }
+
+
+    function agregarSeleccion(nombreProd, idProd) {
+      const seleccionado = seleccionadas[idProd];
+      if (!seleccionado) return;
+
+      const nombreFinal = `${nombreProd} - ${seleccionado.nombre}${seleccionado.sabor ? ' - ' + seleccionado.sabor : ''}`;
+      abrirCantidadModal(nombreFinal, seleccionado.precio, `resumen_${idProd}`);
+    }
+
+    function mostrarAlerta(mensaje, color = 'bg-red-500') {
+      const alerta = document.getElementById('alerta');
+      alerta.textContent = mensaje;
+      alerta.className = `fixed top-20 left-1/2 transform -translate-x-1/2 px-6 py-4 text-white text-lg font-semibold rounded-xl shadow-xl z-[9999] ${color}`;
+      alerta.classList.remove('hidden');
+
+      // animación fade out
+      setTimeout(() => {
+        alerta.classList.add('opacity-0');
+      }, 2500);
+
+      setTimeout(() => {
+        alerta.classList.add('hidden');
+        alerta.classList.remove('opacity-0');
+      }, 3000);
+    }
+
+
+
+
+    function abrirModal(id) {
+      document.getElementById(id).classList.remove('hidden');
+    }
+
+    function cerrarModal(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+    
+    window.onload = () => {
+      cargarProductos();
+      actualizarCarrito();
+    };
+
+  let numeroMesa = "";
+
+  function ordenarPorWhatsapp() {
+    if (carrito.length === 0) {
+      mostrarAlerta("Tu carrito está vacío", "bg-red-500");
+      return;
+    }
+
+    document.getElementById('inputNumeroMesa').value = "";
+    document.getElementById('modalMesa').classList.remove('hidden');
+  }
+
+  function cerrarModalMesa() {
+    document.getElementById('modalMesa').classList.add('hidden');
+  }
+
+  function confirmarMesa() {
+    const input = document.getElementById('inputNumeroMesa').value.trim();
+
+    if (!input) {
+      mostrarAlerta("Por favor ingresa un número de mesa válido.", "bg-red-500");
+      return;
+    }
+
+    numeroMesa = input;
+    cerrarModalMesa();
+    enviarPedidoWhatsApp();
+  }
+
+  function enviarPedidoWhatsApp() {
+    let mensaje = `🧾 *Pedido - Mesa ${numeroMesa}*%0A%0A`;
+    let total = 0;
+
+    carrito.forEach(p => {
+      const subtotal = p.precio * p.cantidad;
+      total += subtotal;
+      mensaje += `🟢 ${p.cantidad} x ${p.nombre}%0A`;
+      if (p.observaciones) {
+        mensaje += `📝 ${p.observaciones}%0A`;
+      }
+      mensaje += `💰 $${subtotal.toLocaleString()}%0A%0A`;
+    });
+
+    mensaje += `🔢 *Total: $${total.toLocaleString()}*`;
+
+    const numeroWhatsApp = "573001234567"; // reemplaza con tu número real
+    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+
+    carrito = [];
+    localStorage.removeItem("carrito");
+    actualizarCarrito();
+    toggleModalPedido(false);
+
+    window.open(url, "_blank");
+  }
+</script>
+
+
+  </script>
+  
+
+ 
+
 </body>
 </html>
-
